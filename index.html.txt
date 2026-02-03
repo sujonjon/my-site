@@ -1,7 +1,0 @@
-<!DOCTYPE html>
-<html>
-<body>
-  <h1>Welcome to Saidur's Website</h1>
-  <p>Eti GitHub Pages diye banano amar prothom website!</p>
-</body>
-</html>
