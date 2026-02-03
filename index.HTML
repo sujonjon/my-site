@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Profile | Mohammad Saidur Rahman</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .chart-container { position: relative; width: 100%; max-width: 600px; margin-left: auto; margin-right: auto; height: 350px; max-height: 400px; }
+        @media (max-width: 768px) { .chart-container { height: 300px; } }
+        .nav-btn { transition: all 0.3s ease; }
+        .nav-btn.active { background-color: #3b82f6; color: white; }
+        .nav-btn:not(.active):hover { background-color: #e5e7eb; }
+        .content-section { display: none; }
+        .content-section.active { display: block; }
+        /* Timeline styles */
+        .timeline-item { position: relative; padding-left: 2.5rem; padding-bottom: 2rem; border-left: 2px solid #d1d5db; }
+        .timeline-item:last-child { border-left: 2px solid transparent; }
+        .timeline-dot { position: absolute; left: -0.5625rem; top: 0.25rem; width: 1.125rem; height: 1.125rem; background-color: white; border: 2px solid #3b82f6; border-radius: 50%; }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-700">
+
+    <div class="container mx-auto p-4 sm:p-6 lg:p-8 max-w-7xl">
+
+        <!-- Header -->
+        <header class="text-center mb-8">
+            <h1 class="text-4xl md:text-5xl font-bold text-slate-900">MOHAMMAD SAIDUR RAHMAN</h1>
+            <p class="text-xl md:text-2xl text-blue-600 mt-2">C-Suite Manufacturing & Business Development Executive</p>
+            <div class="flex justify-center items-center space-x-4 mt-4 text-sm text-slate-500">
+                <span>📍 Dhaka, Bangladesh</span>
+                <span>|</span>
+                <a href="mailto:saidur.reseni@gmail.com" class="hover:text-blue-600">📧 saidur.reseni@gmail.com</a>
+                <span>|</span>
+                <a href="https://www.linkedin.com/in/mohammad-saidur-rahman-chp" target="_blank" class="hover:text-blue-600">🔗 LinkedIn</a>
+            </div>
+        </header>
+
+        <!-- Navigation -->
+        <nav class="flex flex-wrap justify-center gap-2 mb-8">
+            <button id="nav-overview" class="nav-btn active px-4 py-2 rounded-md font-semibold text-sm">Overview</button>
+            <button id="nav-journey" class="nav-btn px-4 py-2 rounded-md font-semibold text-sm">Career Journey</button>
+            <button id="nav-skills" class="nav-btn px-4 py-2 rounded-md font-semibold text-sm">Skills & Education</button>
+            <button id="nav-impact" class="nav-btn px-4 py-2 rounded-md font-semibold text-sm">Impact & AI</button>
+        </nav>
+
+        <main>
+            <!-- Overview Section -->
+            <section id="content-overview" class="content-section active">
+                <div class="bg-white p-6 rounded-lg shadow-sm">
+                    <h2 class="text-2xl font-bold text-slate-900 mb-4">Executive Summary</h2>
+                    <p class="mb-6 text-slate-600">Visionary and performance-driven C-Suite Executive with over 15 years of proven excellence in manufacturing, business development, and supply chain leadership. Renowned for delivering operational transformation, driving global market expansion, and cultivating strategic partnerships with top-tier international buyers including Target, IKEA, H&M, and Walmart. Adept at leading cross-functional teams, optimizing profitability, and aligning people, processes, and strategy to achieve sustained growth.</p>
+                    
+                    <h3 class="text-xl font-bold text-slate-900 mb-4">Core Competencies</h3>
+                    <div class="grid md:grid-cols-2 gap-x-8 gap-y-4">
+                        <div class="flex items-center justify-center min-h-[300px]">
+                            <div class="chart-container">
+                                <canvas id="competencyChart"></canvas>
+                            </div>
+                        </div>
+                        <div class="flex flex-col justify-center space-y-3">
+                            <p>This chart provides a high-level view of key strengths. Hover over each point to see a specific competency, demonstrating a well-rounded executive profile with deep expertise across strategic, operational, and leadership domains.</p>
+                            <ul class="list-disc list-inside space-y-2 text-slate-600">
+                                <li>Strategic Business Growth</li>
+                                <li>Operations & SCM Excellence</li>
+                                <li>Cross-Functional Leadership</li>
+                                <li>Financial & P&L Management</li>
+                                <li>Buyer & Stakeholder Relations</li>
+                                <li>Enterprise Transformation</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Career Journey Section -->
+            <section id="content-journey" class="content-section">
+                <div class="bg-white p-6 rounded-lg shadow-sm">
+                    <h2 class="text-2xl font-bold text-slate-900 mb-2">Career Journey</h2>
+                    <p class="mb-6 text-slate-600">An interactive timeline of my professional experience. Click on any role to expand and see the detailed responsibilities and achievements for that position. This demonstrates a consistent track record of progression and impact.</p>
+                    <div id="timeline-container"></div>
+                </div>
+            </section>
+            
+            <!-- Skills & Education Section -->
+            <section id="content-skills" class="content-section">
+                 <div class="bg-white p-6 rounded-lg shadow-sm">
+                    <h2 class="text-2xl font-bold text-slate-900 mb-6">Skills, Education & Certifications</h2>
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                        <div>
+                            <h3 class="text-xl font-bold text-slate-800 mb-4">Professional Skillset</h3>
+                            <div id="skills-container" class="space-y-4"></div>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold text-slate-800 mb-4">Education</h3>
+                            <div id="education-container" class="space-y-4"></div>
+                            <h3 class="text-xl font-bold text-slate-800 mt-6 mb-4">Certifications</h3>
+                            <div id="certs-container" class="space-y-2"></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Impact & AI Section -->
+            <section id="content-impact" class="content-section">
+                 <div class="bg-white p-6 rounded-lg shadow-sm mb-8">
+                    <h2 class="text-2xl font-bold text-slate-900 mb-2">Quantifiable Impact</h2>
+                    <p class="mb-6 text-slate-600">This chart highlights key performance indicators and measurable successes across revenue growth, operational efficiency, and cost reduction. Hover over each bar to see the specific achievement. These metrics provide tangible proof of my ability to deliver results.</p>
+                    <div class="chart-container">
+                        <canvas id="achievementsChart"></canvas>
+                    </div>
+                </div>
+                 <div class="bg-white p-6 rounded-lg shadow-sm">
+                    <h2 class="text-2xl font-bold text-slate-900 mb-2">AI-Powered Bio Generator</h2>
+                    <p class="mb-4 text-slate-600">Need a quick summary? Click the button below to use the Gemini API to generate a professional third-person biography based on the data in this profile. This tool is perfect for introductions, press releases, or speaker profiles.</p>
+                    <button id="generate-bio-btn" class="bg-blue-600 text-white font-bold py-2 px-4 rounded-lg hover:bg-blue-700 transition-colors">
+                        Generate Professional Bio
+                    </button>
+                    <div id="bio-result-container" class="mt-4 hidden">
+                        <div id="bio-loading" class="text-center text-slate-500">
+                            <p>Generating bio... Please wait.</p>
+                        </div>
+                        <div id="bio-output" class="p-4 bg-slate-100 rounded-lg relative">
+                            <button id="copy-bio-btn" class="absolute top-2 right-2 bg-slate-300 text-slate-700 text-xs font-semibold px-2 py-1 rounded hover:bg-slate-400">Copy</button>
+                            <p id="bio-text" class="text-slate-800 whitespace-pre-wrap"></p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // --- DATA STORE ---
+            const cvData = {
+                achievements: [
+                    { label: 'Revenue Growth', value: 50, details: 'Increased revenue by 50% through innovative marketing strategies.' },
+                    { label: 'Profit Margin Inc.', value: 15, details: 'Achieved a 15% increase in profit margins via improved pricing and cost efficiencies.' },
+                    { label: 'Op. Cost Reduction', value: -20, details: 'Reduced operational costs by 20% by implementing lean practices.' },
+                    { label: 'Revenue Doubled', value: 100, details: 'Doubled revenue in 3 years through strategic redesigns and optimizations.' },
+                    { label: 'Waste Reduction', value: -18, details: 'Reduced raw material waste by 18%.' },
+                    { label: 'Sample Lead Time Red.', value: -20, details: 'Reduced sample lead times by 20% while maintaining quality.' },
+                ],
+                competencies: {
+                    labels: ['Strategic Growth', 'Operations & SCM', 'Team Leadership', 'Financial Acumen', 'Stakeholder Mgt.', 'Innovation'],
+                    data: [90, 95, 85, 80, 90, 75]
+                },
+                experience: [
+                    {
+                        role: 'Chief Business Officer',
+                        company: 'Classical Handmade Products BD Ltd. & Classical Leather & Footwear Products Ltd.',
+                        period: 'Jan 2024 – Present',
+                        details: [
+                            'Formulate comprehensive risk management plans.',
+                            'Increased revenue by 50% through innovative marketing strategies.',
+                            'Directed organizational policy development for operational excellence.',
+                            'Led business development and strategic management across both entities.'
+                        ]
+                    },
+                    {
+                        role: 'Head of Merchandising',
+                        company: 'Classical Handmade Products BD Ltd.',
+                        period: 'Sep 2021 – Dec 2023',
+                        details: [
+                            'Managed end-to-end buyer communication, order collection, and sample developments for global clients (Target, IKEA, H&M, Walmart, etc.).',
+                            'Achieved 100% revenue increase in 3 years by enhancing critical path management and on-time deliveries.',
+                            'Expanded US buyer portfolio and secured Nordic market entry.',
+                            'Onboarded global buyers (Target, IKEA) and ensured long-term retention.',
+                            'Led Merchandising (Sales & Marketing), Supply Chain & Planning, and Business Operations teams.',
+                            'Mentored Quality, Compliance & Sustainability teams to achieve corporate goals.',
+                            'Launched bi-monthly internal design contests to drive product development innovation.'
+                        ]
+                    },
+                     {
+                        role: 'Country Manager',
+                        company: 'Basketville Inc.',
+                        period: 'Jan 2020 – Aug 2021',
+                        details: [
+                           'Optimized vendor communication, standardized testing protocols, and met pricing benchmarks to strengthen supply chain processes.',
+                           'Reduced operational costs by 20% and raw material waste by 18% through lean practices.',
+                           'Reduced material expenses by 20% through effective supply and tracking management.',
+                           'Implemented policies for cost and waste reduction, driving operational improvements and managing QA programs.',
+                           'Maintained relationships with regulatory authorities, suppliers, and customers; conducted compliance audits.'
+                        ]
+                    },
+                    {
+                        role: 'Deputy Manager, SCM (HOD)',
+                        company: 'Leatherex Footwear Industries Ltd.',
+                        period: 'Aug 2014 – Jan 2020',
+                        details: [
+                            'Applied performance data to evaluate operations, target business conditions, and forecast needs.',
+                            'Achieved 15% increase in profit margins from optimized pricing and bulk material purchasing.',
+                            'Improved efficiency of $5M worth of annual footwear deliveries.',
+                            'Oversaw a 30-person team, maximizing performance.',
+                            'Managed annual budget, purchasing, and import operations (footwear/bag items).',
+                            'Handled commercial documents and all import-related Bond License jobs.'
+                        ]
+                    },
+                    {
+                        role: 'Team Lead',
+                        company: 'Sainsbury\'s',
+                        period: 'Dec 2010 – June 2014',
+                        details: [
+                           'Supervised daily work, ensuring prioritization and quality.'
+                        ]
+                    },
+                    {
+                        role: 'Trainee in Administration',
+                        company: 'London College of Law & Management',
+                        period: 'Oct 2009 – Dec 2010',
+                        details: [
+                           'Managed telephone communications and assisted research activities.'
+                        ]
+                    }
+                ],
+                skills: [
+                   { category: 'Strategic & Business Acumen', items: ['Strategic Planning', 'Business Development', 'Market Analysis', 'P&L Management', 'Risk Management', 'Enterprise Transformation', 'Trend Analysis', 'Profitability Analysis'] },
+                   { category: 'Operations & Supply Chain', items: ['SCM', 'Procurement', 'Global Sourcing', 'Vendor Management', 'Lean Manufacturing', 'QA', 'ISO 9001:2015', 'ISO 14000', 'Logistics', 'Order Fulfillment', 'Critical Path Management'] },
+                   { category: 'Leadership & Management', items: ['Cross-Functional Team Leadership', 'Talent Development', 'Stakeholder Management', 'Project Management', 'Mentoring'] },
+                   { category: 'Technical & Software', items: ['MS Office Suite', 'Excel Dashboards', 'Windows & Mac OS', 'AI Tools & Automation'] },
+                   { category: 'Soft Skills', items: ['Effective Interpersonal Communication', 'Cross-Cultural Communication', 'Negotiation', 'Problem Solving', 'Decision Making', 'Adaptability', 'Working Under Pressure'] }
+                ],
+                education: [
+                    { degree: 'MBA in MIS', school: 'University of Scholars', period: '2023 – 2025' },
+                    { degree: 'PGD in Marketing & Brand Management', school: 'BIMS', period: '2024 – 2025' },
+                    { degree: 'MBA in Marketing', school: 'International MBA Institute™', period: '2022 – 2023' },
+                    { degree: 'PGD in Supply Chain Management', school: 'ISCEA, USA', period: '2016 – 2017' },
+                    { degree: 'PGD in Business Administration', school: 'EBMA, UK', period: '2013 – 2014' },
+                    { degree: 'Bachelor of Arts: Accounting and Financial Management', school: 'University of Sunderland, UK', period: '2010 – 2013' }
+                ],
+                certifications: [
+                    'Certified High Performing Executives', 'Certificate course in Apparel Merchandising', 'Certified Six Sigma Master Black Belt (CSSMBB)', 'Diploma in Lean Manufacturing', 'ISO 9001:2015 Quality Management System (QMS)', 'ISO 14000', 'Communication and Interpersonal Skills at Work', 'Diploma in Workplace Safety and Health', 'How to be an efficient Commercial & Procurement Manager'
+                ]
+            };
+
+            // --- NAVIGATION ---
+            const navButtons = document.querySelectorAll('.nav-btn');
+            const contentSections = document.querySelectorAll('.content-section');
+
+            navButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const targetId = button.id.replace('nav-', 'content-');
+                    
+                    navButtons.forEach(btn => btn.classList.remove('active'));
+                    button.classList.add('active');
+
+                    contentSections.forEach(section => {
+                        section.classList.remove('active');
+                        if (section.id === targetId) {
+                            section.classList.add('active');
+                        }
+                    });
+                });
+            });
+
+            // --- RENDER DYNAMIC CONTENT ---
+
+            // Timeline
+            const timelineContainer = document.getElementById('timeline-container');
+            cvData.experience.forEach(job => {
+                const item = document.createElement('div');
+                item.className = 'timeline-item';
+                item.innerHTML = `
+                    <div class="timeline-dot"></div>
+                    <div class="cursor-pointer">
+                        <h4 class="font-bold text-lg text-slate-800">${job.role}</h4>
+                        <p class="font-semibold text-blue-600">${job.company}</p>
+                        <p class="text-sm text-slate-500 mb-2">${job.period}</p>
+                    </div>
+                    <div class="job-details hidden pl-4 mt-2 border-l-2 border-slate-200">
+                        <ul class="list-disc list-inside space-y-1 text-slate-600">
+                            ${job.details.map(d => `<li>${d}</li>`).join('')}
+                        </ul>
+                    </div>
+                `;
+                item.querySelector('.cursor-pointer').addEventListener('click', (e) => {
+                     e.currentTarget.nextElementSibling.classList.toggle('hidden');
+                });
+                timelineContainer.appendChild(item);
+            });
+            
+            // Skills
+            const skillsContainer = document.getElementById('skills-container');
+            cvData.skills.forEach(skillCat => {
+                 const catDiv = document.createElement('div');
+                 catDiv.innerHTML = `
+                    <h4 class="font-semibold text-slate-700 mb-2">${skillCat.category}</h4>
+                    <div class="flex flex-wrap gap-2">
+                        ${skillCat.items.map(item => `<span class="bg-blue-100 text-blue-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">${item}</span>`).join('')}
+                    </div>
+                 `;
+                 skillsContainer.appendChild(catDiv);
+            });
+
+            // Education
+            const educationContainer = document.getElementById('education-container');
+            cvData.education.forEach(edu => {
+                 const eduDiv = document.createElement('div');
+                 eduDiv.innerHTML = `
+                    <p class="font-bold text-slate-800">${edu.degree}</p>
+                    <p class="text-sm text-slate-600">${edu.school} | ${edu.period}</p>
+                 `;
+                 educationContainer.appendChild(eduDiv);
+            });
+            
+            // Certifications
+            const certsContainer = document.getElementById('certs-container');
+            cvData.certifications.forEach(cert => {
+                const certP = document.createElement('p');
+                certP.className = 'text-sm text-slate-600';
+                certP.innerHTML = `&raquo; ${cert}`;
+                certsContainer.appendChild(certP);
+            });
+
+            // --- CHARTS ---
+
+            // Competency Radar Chart
+            const competencyCtx = document.getElementById('competencyChart').getContext('2d');
+            new Chart(competencyCtx, {
+                type: 'radar',
+                data: {
+                    labels: cvData.competencies.labels,
+                    datasets: [{
+                        label: 'Competency Level',
+                        data: cvData.competencies.data,
+                        backgroundColor: 'rgba(59, 130, 246, 0.2)',
+                        borderColor: 'rgba(59, 130, 246, 1)',
+                        pointBackgroundColor: 'rgba(59, 130, 246, 1)',
+                        pointBorderColor: '#fff',
+                        pointHoverBackgroundColor: '#fff',
+                        pointHoverBorderColor: 'rgba(59, 130, 246, 1)'
+                    }]
+                },
+                options: {
+                    maintainAspectRatio: false,
+                    scales: {
+                        r: {
+                            angleLines: { color: '#e2e8f0' },
+                            grid: { color: '#e2e8f0' },
+                            pointLabels: { font: { size: 12 }, color: '#475569' },
+                            ticks: { display: false, beginAtZero: true, max: 100 }
+                        }
+                    },
+                    plugins: {
+                        legend: { display: false }
+                    }
+                }
+            });
+
+            // Achievements Bar Chart
+            const achievementsCtx = document.getElementById('achievementsChart').getContext('2d');
+            new Chart(achievementsCtx, {
+                type: 'bar',
+                data: {
+                    labels: cvData.achievements.map(a => a.label),
+                    datasets: [{
+                        label: 'Change (%)',
+                        data: cvData.achievements.map(a => a.value),
+                        backgroundColor: cvData.achievements.map(a => a.value > 0 ? 'rgba(34, 197, 94, 0.7)' : 'rgba(239, 68, 68, 0.7)'),
+                        borderColor: cvData.achievements.map(a => a.value > 0 ? 'rgba(34, 197, 94, 1)' : 'rgba(239, 68, 68, 1)'),
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    maintainAspectRatio: false,
+                    indexAxis: 'y',
+                    scales: {
+                        x: {
+                            beginAtZero: true,
+                            grid: { color: '#e2e8f0' }
+                        },
+                        y: {
+                            grid: { display: false }
+                        }
+                    },
+                    plugins: {
+                        legend: { display: false },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    return cvData.achievements[context.dataIndex].details;
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+            
+            // --- GEMINI API BIO GENERATOR ---
+            const generateBtn = document.getElementById('generate-bio-btn');
+            const resultContainer = document.getElementById('bio-result-container');
+            const loadingDiv = document.getElementById('bio-loading');
+            const outputDiv = document.getElementById('bio-output');
+            const bioTextP = document.getElementById('bio-text');
+            const copyBtn = document.getElementById('copy-bio-btn');
+            
+            // The prompt is structured to use the extracted CV data to generate a concise summary
+            const prompt = `Based on the following professional summary and experience, write a concise and compelling third-person professional biography (around 100-120 words) for Mohammad Saidur Rahman. The tone should be professional, confident, and highlight key achievements and leadership qualities. Be sure to include his expertise in both manufacturing and business development.
+            Summary: Visionary and performance-driven C-Suite Executive with over 15 years of proven excellence in manufacturing, business development, and supply chain leadership. Renowned for delivering operational transformation, driving global market expansion, and cultivating strategic partnerships with top-tier international buyers including Target, IKEA, H&M, and Walmart. Key achievements include a 50% revenue increase and a 15% increase in profit margins. He holds multiple MBAs and PGDs, including a Certified Six Sigma Master Black Belt and a Certified High Performing Executives certification.`;
+
+            generateBtn.addEventListener('click', async () => {
+                resultContainer.style.display = 'block';
+                loadingDiv.style.display = 'block';
+                outputDiv.style.display = 'none';
+
+                try {
+                    let chatHistory = [{ role: "user", parts: [{ text: prompt }] }];
+                    const payload = { contents: chatHistory };
+                    const apiKey = "";
+                    const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-05-20:generateContent?key=${apiKey}`;
+                    
+                    const response = await fetch(apiUrl, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(payload)
+                    });
+                    
+                    if (!response.ok) {
+                        throw new Error(`API error: ${response.statusText}`);
+                    }
+                    
+                    const result = await response.json();
+
+                    if (result.candidates && result.candidates[0]?.content?.parts[0]?.text) {
+                        bioTextP.innerText = result.candidates[0].content.parts[0].text;
+                    } else {
+                        throw new Error('Unexpected API response structure.');
+                    }
+                } catch (error) {
+                    console.error('Error generating bio:', error);
+                    bioTextP.innerText = 'Sorry, there was an error generating the bio. Please try again later.';
+                } finally {
+                    loadingDiv.style.display = 'none';
+                    outputDiv.style.display = 'block';
+                }
+            });
+            
+            copyBtn.addEventListener('click', () => {
+                const textToCopy = bioTextP.innerText;
+                const textArea = document.createElement('textarea');
+                textArea.value = textToCopy;
+                document.body.appendChild(textArea);
+                textArea.select();
+                try {
+                    document.execCommand('copy');
+                    copyBtn.innerText = 'Copied!';
+                    setTimeout(() => { copyBtn.innerText = 'Copy'; }, 2000);
+                } catch (err) {
+                    console.error('Failed to copy text: ', err);
+                }
+                document.body.removeChild(textArea);
+            });
+        });
+    </script>
+</body>
+</html>
