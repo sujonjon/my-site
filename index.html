@@ -3,233 +3,212 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mohammad Saidur Rahman | C-Suite Executive</title>
+    <title>Mohammad Saidur Rahman | CBO & Strategic Leader</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap');
-        body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #0b1120; color: #f1f5f9; scroll-behavior: smooth; }
-        .hero-bg {
-            background: linear-gradient(to bottom, rgba(11, 17, 32, 0.75), #0b1120), 
-                        url('https://files.gamma.app/fh0698un03q69v7/6d9670737a0a4c2691e9f458e0a47141/original/Gamma-Background.jpg');
-            background-size: cover; background-position: center; background-attachment: fixed; min-height: 90vh;
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap');
+        body { font-family: 'Plus Jakarta Sans', sans-serif; background: #020617; color: #f8fafc; scroll-behavior: smooth; }
+        
+        .hero-section {
+            background: linear-gradient(135deg, rgba(2, 6, 23, 0.9), rgba(30, 58, 138, 0.5)), 
+                        url('https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80');
+            background-size: cover; background-attachment: fixed;
         }
-        .glass-card { background: rgba(30, 41, 59, 0.4); border: 1px solid rgba(255, 255, 255, 0.08); backdrop-filter: blur(12px); border-radius: 1.5rem; transition: 0.3s; }
-        .glass-card:hover { transform: translateY(-8px); border-color: #3b82f6; box-shadow: 0 20px 40px -20px rgba(59, 130, 246, 0.3); }
-        .gradient-blue { background: linear-gradient(90deg, #60a5fa, #a855f7); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        .timeline-box { border-left: 2px solid #3b82f6; padding-left: 2rem; position: relative; }
-        .timeline-box::before { content: ''; position: absolute; left: -9px; top: 8px; width: 16px; height: 16px; background: #3b82f6; border-radius: 50%; border: 4px solid #0b1120; }
+        
+        .glass-card { 
+            background: rgba(30, 41, 59, 0.4); 
+            border: 1px solid rgba(255, 255, 255, 0.1); 
+            backdrop-filter: blur(20px); 
+            border-radius: 2rem; 
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); 
+        }
+        
+        .glass-card:hover { transform: translateY(-10px); border-color: #3b82f6; box-shadow: 0 25px 50px -12px rgba(59, 130, 246, 0.25); }
+        
+        .product-img { width: 100%; height: 250px; object-fit: cover; border-radius: 1.5rem; }
+        
+        .gradient-border { 
+            padding: 2px; 
+            background: linear-gradient(90deg, #3b82f6, #a855f7); 
+            border-radius: 2rem; 
+        }
+        
+        .nav-item:hover { color: #3b82f6; text-shadow: 0 0 10px rgba(59, 130, 246, 0.5); }
     </style>
 </head>
 <body>
 
-    <nav class="fixed w-full z-50 bg-slate-900/60 backdrop-blur-lg border-b border-white/5 px-8 py-4 flex justify-between items-center">
-        <span class="font-bold text-2xl tracking-tighter">MSR<span class="text-blue-500">.</span></span>
-        <div class="hidden md:flex space-x-8 text-xs font-bold uppercase tracking-widest">
-            <a href="#summary" class="hover:text-blue-400 transition">Profile</a>
-            <a href="#experience" class="hover:text-blue-400 transition">Experience</a>
-            <a href="#competencies" class="hover:text-blue-400 transition">Competencies</a>
-            <a href="#education" class="hover:text-blue-400 transition">Credentials</a>
-            <a href="mailto:saidur.reseni@gmail.com" class="bg-blue-600 px-6 py-2 rounded-full text-white">Contact</a>
+    <nav class="fixed w-full z-50 bg-slate-950/80 backdrop-blur-xl border-b border-white/5 px-6 py-4 flex justify-between items-center">
+        <span class="text-3xl font-black tracking-tighter text-white">MSR<span class="text-blue-500">.</span></span>
+        <div class="hidden lg:flex space-x-10 text-[10px] font-bold uppercase tracking-[0.2em] text-slate-400">
+            <a href="#summary" class="nav-item">Executive Profile</a>
+            <a href="#portfolio" class="nav-item text-blue-400">Global Portfolio</a>
+            <a href="#experience" class="nav-item">Career Stats</a>
+            <a href="#education" class="nav-item">Credentials</a>
+            <a href="mailto:saidur.reseni@gmail.com" class="px-6 py-2 bg-blue-600 rounded-full text-white shadow-lg shadow-blue-500/30">Connect Now</a>
         </div>
     </nav>
 
-    <header class="hero-bg flex items-center justify-center text-center px-6">
-        <div class="max-w-4xl pt-20">
-            <h1 class="text-5xl md:text-8xl font-extrabold mb-6 leading-tight">Mohammad <br><span class="gradient-blue">Saidur Rahman</span></h1>
-            <p class="text-xl md:text-2xl text-slate-300 font-light mb-8 italic">C-Suite Manufacturing & Business Development Executive</p>
-            <div class="flex flex-wrap justify-center gap-4 mb-8">
-                <span class="px-4 py-2 bg-white/5 rounded-lg border border-white/10 text-sm">Target</span>
-                <span class="px-4 py-2 bg-white/5 rounded-lg border border-white/10 text-sm">IKEA</span>
-                <span class="px-4 py-2 bg-white/5 rounded-lg border border-white/10 text-sm">H&M</span>
-                <span class="px-4 py-2 bg-white/5 rounded-lg border border-white/10 text-sm">ZARA</span>
-                <span class="px-4 py-2 bg-white/5 rounded-lg border border-white/10 text-sm">Walmart</span>
+    <header class="hero-section min-h-screen flex items-center px-6">
+        <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 pt-20">
+            <div class="space-y-8">
+                <div class="inline-block px-4 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-xs font-bold uppercase tracking-widest">C-Suite Executive Portfolio</div>
+                <h1 class="text-6xl md:text-8xl font-black leading-tight">Leading <br><span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-indigo-400 to-purple-500">Manufacturing Excellence</span></h1>
+                <p class="text-xl text-slate-400 font-light max-w-lg">Chief Business Officer with 15+ years of strategic leadership across Global SCM, Business Development, and Operational Transformation.</p>
+                <div class="flex space-x-4">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/c/c5/Ikea_logo.svg" class="h-6 opacity-40 hover:opacity-100 transition grayscale hover:grayscale-0">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/4/41/H%26M-Logo.svg" class="h-6 opacity-40 hover:opacity-100 transition grayscale hover:grayscale-0">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/7/76/Zara_Logo.svg" class="h-6 opacity-40 hover:opacity-100 transition grayscale hover:grayscale-0">
+                </div>
             </div>
-            <div class="flex justify-center space-x-6">
-                <a href="https://linkedin.com/in/mohammad-saidur-rahman-chp" target="_blank" class="p-4 bg-white/5 rounded-full hover:bg-blue-600 transition"><i class="fab fa-linkedin-in text-xl"></i></a>
-                <a href="mailto:saidur.reseni@gmail.com" class="p-4 bg-white/5 rounded-full hover:bg-blue-600 transition"><i class="fas fa-envelope text-xl"></i></a>
-                <a href="tel:+8801917182199" class="p-4 bg-white/5 rounded-full hover:bg-blue-600 transition"><i class="fas fa-phone-alt text-xl"></i></a>
+            <div class="grid grid-cols-2 gap-6">
+                <div class="glass-card p-8 text-center">
+                    <i class="fas fa-chart-line text-blue-500 text-4xl mb-4"></i>
+                    <h3 class="text-3xl font-bold">18%</h3>
+                    <p class="text-xs uppercase text-slate-500 font-bold">YoY Revenue Growth</p>
+                </div>
+                <div class="glass-card p-8 text-center mt-12">
+                    <i class="fas fa-handshake text-purple-500 text-4xl mb-4"></i>
+                    <h3 class="text-3xl font-bold">95%</h3>
+                    <p class="text-xs uppercase text-slate-500 font-bold">Buyer Retention</p>
+                </div>
             </div>
         </div>
     </header>
 
-    <main class="max-w-6xl mx-auto px-6 -mt-20 pb-32">
-        
-        <section id="summary" class="glass-card p-10 mb-16">
-            <div class="grid md:grid-cols-2 gap-12 items-center">
-                <div>
-                    <h2 class="text-3xl font-bold mb-6">Executive Summary</h2>
-                    <p class="text-slate-400 text-lg leading-relaxed mb-6">
-                        Visionary Business Executive with over **15 years** of excellence in manufacturing, business development, and supply chain leadership. Expert in driving operational transformation, global market expansion, and P&L management for multi-million dollar business units.
-                    </p>
-                    <div class="grid grid-cols-2 gap-4">
-                        <div class="p-6 bg-slate-800/50 rounded-2xl border border-white/5">
-                            <h4 class="text-3xl font-bold text-blue-400">15+</h4>
-                            <p class="text-xs uppercase text-slate-500 mt-1">Years of Excellence</p>
-                        </div>
-                        <div class="p-6 bg-slate-800/50 rounded-2xl border border-white/5">
-                            <h4 class="text-3xl font-bold text-purple-400">18%</h4>
-                            <p class="text-xs uppercase text-slate-500 mt-1">YoY Revenue Growth</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="chart-container">
-                    <canvas id="competencyRadar"></canvas>
-                </div>
-            </div>
-        </section>
+    <main class="max-w-7xl mx-auto px-6 py-20 space-y-32">
 
-        <section id="experience" class="mb-20">
-            <h2 class="text-4xl font-bold mb-12 text-center uppercase tracking-tighter">Career Progression</h2>
-            <div class="space-y-12">
-                <div class="timeline-box">
-                    <div class="flex flex-col md:flex-row justify-between items-start mb-4">
-                        <h3 class="text-2xl font-bold text-blue-400">Chief Business Officer</h3>
-                        <span class="text-slate-500 font-mono">Jan 2024 – Present</span>
+        <section id="portfolio">
+            <h2 class="text-5xl font-black text-center mb-16 uppercase tracking-tighter">Manufacturing Footprint</h2>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="glass-card p-4 overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1616489953149-755e74c2e77d?auto=format&fit=crop&q=80" class="product-img mb-6">
+                    <h3 class="text-xl font-bold mb-2">Sustainable Home Décor</h3>
+                    <p class="text-slate-500 text-sm mb-4 italic">Baskets, Storage & Rugs for IKEA, Target, ZARA Home.</p>
+                    <div class="flex justify-between items-center text-xs font-bold text-blue-400">
+                        <span>Handmade Eco-Fiber</span>
+                        <i class="fas fa-arrow-right"></i>
                     </div>
-                    <p class="text-lg font-semibold text-slate-200 mb-4">Classical Handmade Products BD Ltd. & Classical Leather</p>
-                    <ul class="space-y-3 text-slate-400 text-sm list-inside list-disc">
-                        <li>Formulated comprehensive risk management plans to mitigate operational and investment risks.</li>
-                        <li>Designed innovative marketing strategies resulting in significant revenue growth.</li>
-                        <li>Directed organizational policies and structures to ensure 100% operational excellence.</li>
-                        <li>P&L ownership for business units with multi-buyer portfolios (IKEA, H&M, Walmart).</li>
+                </div>
+
+                <div class="glass-card p-4 overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1590673885247-aa7f7b9f93a8?auto=format&fit=crop&q=80" class="product-img mb-6">
+                    <h3 class="text-xl font-bold mb-2">Premium Leather Goods</h3>
+                    <p class="text-slate-500 text-sm mb-4 italic">Footwear & Accessories. Exported to EU, USA & Asia.</p>
+                    <div class="flex justify-between items-center text-xs font-bold text-indigo-400">
+                        <span>High-End Craftsmanship</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </div>
+                </div>
+
+                <div class="glass-card p-8 bg-gradient-to-br from-slate-800 to-slate-900">
+                    <h3 class="text-2xl font-bold mb-6">Supply Chain Impact</h3>
+                    <ul class="space-y-6">
+                        <li class="flex items-center space-x-4">
+                            <div class="bg-blue-500 h-2 w-2 rounded-full shadow-[0_0_10px_#3b82f6]"></div>
+                            <span class="text-sm">15% Lead Time Reduction</span>
+                        </li>
+                        <li class="flex items-center space-x-4">
+                            <div class="bg-indigo-500 h-2 w-2 rounded-full shadow-[0_0_10px_#6366f1]"></div>
+                            <span class="text-sm">Lean Manufacturing (6 Sigma)</span>
+                        </li>
+                        <li class="flex items-center space-x-4">
+                            <div class="bg-purple-500 h-2 w-2 rounded-full shadow-[0_0_10px_#a855f7]"></div>
+                            <span class="text-sm">100% Compliance Rating</span>
+                        </li>
                     </ul>
                 </div>
-
-                <div class="timeline-box">
-                    <div class="flex flex-col md:flex-row justify-between items-start mb-4">
-                        <h3 class="text-2xl font-bold text-purple-400">Head of Merchandising</h3>
-                        <span class="text-slate-500 font-mono">Sept 2021 – Dec 2023</span>
-                    </div>
-                    <p class="text-lg font-semibold text-slate-200 mb-4">Classical Handmade Products BD Ltd.</p>
-                    <p class="text-slate-400 text-sm">Managed end-to-end buyer communication, order collection, and sample development with 18% cycle time reduction.</p>
-                </div>
-
-                <div class="timeline-box">
-                    <div class="flex flex-col md:flex-row justify-between items-start mb-4">
-                        <h3 class="text-2xl font-bold text-green-400">Country Manager</h3>
-                        <span class="text-slate-500 font-mono">Jan 2020 – Aug 2021</span>
-                    </div>
-                    <p class="text-lg font-semibold text-slate-200 mb-4">Basketville Inc. (Bangladesh)</p>
-                    <p class="text-slate-400 text-sm">Optimized vendor communication and standardized quality protocols for global yarn/product supply chains.</p>
-                </div>
-
-                <div class="timeline-box">
-                    <div class="flex flex-col md:flex-row justify-between items-start mb-4">
-                        <h3 class="text-2xl font-bold text-yellow-400">Deputy Manager, SCM (HOD)</h3>
-                        <span class="text-slate-500 font-mono">Aug 2014 – Jan 2020</span>
-                    </div>
-                    <p class="text-lg font-semibold text-slate-200 mb-4">Leatherex Footwear Industries Ltd.</p>
-                    <p class="text-slate-400 text-sm">Head of Department supervising daily staff work, quality prioritization, and client specification implementation.</p>
-                </div>
             </div>
         </section>
 
-        <section id="competencies" class="grid md:grid-cols-2 gap-10 mb-20">
-            <div class="glass-card p-8">
-                <h3 class="text-xl font-bold mb-8 border-b border-white/5 pb-4">Core Competencies</h3>
-                <div class="space-y-6">
-                    <div class="flex justify-between items-center">
-                        <span class="text-sm">Strategic Growth & Expansion</span>
-                        <div class="w-32 bg-slate-800 h-1.5 rounded-full"><div class="bg-blue-500 h-1.5 rounded-full" style="width: 95%"></div></div>
+        <section class="grid lg:grid-cols-2 gap-20 items-center">
+            <div class="space-y-6">
+                <h2 class="text-4xl font-bold">Strategic Competencies</h2>
+                <p class="text-slate-400 italic leading-relaxed">This radar chart visualizes 15 years of skill refinement, showcasing dominance in Strategic Growth, P&L Ownership, and C-Suite Engagement.</p>
+                <div class="grid grid-cols-2 gap-4">
+                    <div class="p-4 rounded-2xl bg-white/5 border border-white/5">
+                        <span class="block text-blue-400 font-bold mb-1">MBA (MIS)</span>
+                        <span class="text-[10px] uppercase text-slate-500 tracking-widest font-bold">Univ. of Scholars</span>
                     </div>
-                    <div class="flex justify-between items-center">
-                        <span class="text-sm">Supply Chain & Operations</span>
-                        <div class="w-32 bg-slate-800 h-1.5 rounded-full"><div class="bg-blue-500 h-1.5 rounded-full" style="width: 90%"></div></div>
-                    </div>
-                    <div class="flex justify-between items-center">
-                        <span class="text-sm">Financial Planning & P&L</span>
-                        <div class="w-32 bg-slate-800 h-1.5 rounded-full"><div class="bg-blue-500 h-1.5 rounded-full" style="width: 92%"></div></div>
-                    </div>
-                    <div class="flex justify-between items-center">
-                        <span class="text-sm">C-Suite & Stakeholder Engagement</span>
-                        <div class="w-32 bg-slate-800 h-1.5 rounded-full"><div class="bg-blue-500 h-1.5 rounded-full" style="width: 98%"></div></div>
+                    <div class="p-4 rounded-2xl bg-white/5 border border-white/5">
+                        <span class="block text-purple-400 font-bold mb-1">MBA (Marketing)</span>
+                        <span class="text-[10px] uppercase text-slate-500 tracking-widest font-bold">Int. MBA Institute</span>
                     </div>
                 </div>
             </div>
-
-            <div class="glass-card p-8">
-                <h3 class="text-xl font-bold mb-8 border-b border-white/5 pb-4">Professional Certifications</h3>
-                <div class="grid grid-cols-1 gap-4 text-xs">
-                    <div class="flex items-center space-x-3 bg-white/5 p-3 rounded-lg hover:bg-white/10 transition">
-                        <i class="fas fa-certificate text-yellow-500"></i>
-                        <span>Six Sigma Master Black Belt (CSSMBB) - 2023</span>
-                    </div>
-                    <div class="flex items-center space-x-3 bg-white/5 p-3 rounded-lg hover:bg-white/10 transition">
-                        <i class="fas fa-certificate text-yellow-500"></i>
-                        <span>ISO 9001:2015 Quality Management System - 2020</span>
-                    </div>
-                    <div class="flex items-center space-x-3 bg-white/5 p-3 rounded-lg hover:bg-white/10 transition">
-                        <i class="fas fa-certificate text-yellow-500"></i>
-                        <span>Certified High Performing Executives - 2024</span>
-                    </div>
-                    <div class="flex items-center space-x-3 bg-white/5 p-3 rounded-lg hover:bg-white/10 transition">
-                        <i class="fas fa-certificate text-yellow-500"></i>
-                        <span>Diploma in Lean Manufacturing - 2023</span>
-                    </div>
-                </div>
+            <div class="glass-card p-10 h-[400px]">
+                <canvas id="skillRadar"></canvas>
             </div>
         </section>
 
-        <section id="education" class="glass-card p-10 mb-20">
-            <h2 class="text-3xl font-bold mb-10 flex items-center"><i class="fas fa-user-graduate mr-4 text-blue-500"></i> Academic Background</h2>
-            <div class="grid md:grid-cols-3 gap-8">
-                <div class="border-l border-white/10 pl-6">
-                    <h4 class="font-bold text-white uppercase text-sm mb-1">MBA in MIS</h4>
-                    <p class="text-xs text-slate-500 mb-2">University of Scholars | 2023–2025</p>
+        <section id="experience">
+            <h2 class="text-4xl font-black mb-16 text-center">Career Journey</h2>
+            <div class="space-y-8">
+                <div class="glass-card p-10 flex flex-col md:flex-row justify-between hover:bg-slate-800/50">
+                    <div class="max-w-xl">
+                        <div class="text-blue-500 font-bold text-sm mb-2 tracking-[0.2em] uppercase">Jan 2024 - Present</div>
+                        <h3 class="text-2xl font-bold mb-2">Chief Business Officer (CBO)</h3>
+                        <p class="text-indigo-300 mb-4 font-semibold">CHP Global & Classical Leather</p>
+                        <ul class="text-sm text-slate-400 space-y-2 list-inside list-disc">
+                            <li>Managing multi-buyer portfolios worth millions in USD.</li>
+                            <li>Implemented Lean Supply Chain, reducing costs by 8%.</li>
+                            <li>P&L ownership and risk mitigation planning at board level.</li>
+                        </ul>
+                    </div>
+                    <div class="mt-6 md:mt-0 flex flex-wrap gap-2 items-start content-start">
+                        <span class="px-3 py-1 bg-slate-700 rounded-full text-[10px] font-bold uppercase">Strategic Growth</span>
+                        <span class="px-3 py-1 bg-slate-700 rounded-full text-[10px] font-bold uppercase">Compliance</span>
+                    </div>
                 </div>
-                <div class="border-l border-white/10 pl-6">
-                    <h4 class="font-bold text-white uppercase text-sm mb-1">MBA in Marketing</h4>
-                    <p class="text-xs text-slate-500 mb-2">International MBA Institute | 2022–2023</p>
-                </div>
-                <div class="border-l border-white/10 pl-6">
-                    <h4 class="font-bold text-white uppercase text-sm mb-1">BA: Accounting & Finance</h4>
-                    <p class="text-xs text-slate-500 mb-2">University of Sunderland, UK | 2010–2013</p>
-                </div>
-                <div class="border-l border-white/10 pl-6">
-                    <h4 class="font-bold text-white uppercase text-sm mb-1">PGD in SCM</h4>
-                    <p class="text-xs text-slate-500 mb-2">ISCEA, USA | 2016–2017</p>
-                </div>
-                <div class="border-l border-white/10 pl-6">
-                    <h4 class="font-bold text-white uppercase text-sm mb-1">PGD in Marketing</h4>
-                    <p class="text-xs text-slate-500 mb-2">BIMS | 2024–2025</p>
-                </div>
-                <div class="border-l border-white/10 pl-6">
-                    <h4 class="font-bold text-white uppercase text-sm mb-1">PGD in Business Admin</h4>
-                    <p class="text-xs text-slate-500 mb-2">EBMA, UK | 2013–2014</p>
+
+                <div class="glass-card p-10 flex flex-col md:flex-row justify-between opacity-70">
+                    <div>
+                        <div class="text-slate-500 font-bold text-sm mb-2 uppercase tracking-[0.2em]">Aug 2014 - Jan 2020</div>
+                        <h3 class="text-2xl font-bold mb-2">Deputy Manager, SCM (HOD)</h3>
+                        <p class="text-slate-300 mb-4">Leatherex Footwear Industries Ltd.</p>
+                        <p class="text-sm text-slate-500">Led end-to-end supply chain for footwear manufacturing with focus on EU export quality.</p>
+                    </div>
                 </div>
             </div>
         </section>
 
     </main>
 
-    <footer class="py-12 text-center bg-slate-900/50 border-t border-white/5">
-        <p class="text-xs text-slate-500 tracking-widest uppercase">&copy; 2026 Mohammad Saidur Rahman | C-Suite Executive</p>
+    <footer class="py-24 bg-slate-950 border-t border-white/5 text-center">
+        <h2 class="text-5xl font-black mb-8 italic text-transparent bg-clip-text bg-gradient-to-b from-white to-slate-500">Let's Connect & Transform.</h2>
+        <div class="flex justify-center space-x-8 mb-12">
+            <a href="mailto:saidur.reseni@gmail.com" class="text-3xl text-slate-400 hover:text-blue-500 transition"><i class="fas fa-envelope"></i></a>
+            <a href="https://linkedin.com/in/mohammad-saidur-rahman-chp" class="text-3xl text-slate-400 hover:text-blue-500 transition"><i class="fab fa-linkedin"></i></a>
+            <a href="tel:+8801917182199" class="text-3xl text-slate-400 hover:text-blue-500 transition"><i class="fas fa-phone"></i></a>
+        </div>
+        <p class="text-[10px] uppercase tracking-[0.5em] text-slate-600">Mohammad Saidur Rahman &copy; 2026</p>
     </footer>
 
     <script>
-        // Radar Chart for Skills
-        const ctx = document.getElementById('competencyRadar').getContext('2d');
+        const ctx = document.getElementById('skillRadar').getContext('2d');
         new Chart(ctx, {
             type: 'radar',
             data: {
-                labels: ['Strategic Growth', 'Supply Chain', 'Financial Mgt', 'Innovation', 'Leadership', 'Stakeholder'],
+                labels: ['Strategy', 'Operations', 'Leadership', 'Financial Mgt', 'Product Dev', 'Supply Chain'],
                 datasets: [{
-                    label: 'Expertise',
-                    data: [95, 90, 92, 88, 98, 96],
+                    label: 'Professional Dominance',
+                    data: [98, 92, 95, 90, 88, 94],
                     backgroundColor: 'rgba(59, 130, 246, 0.2)',
                     borderColor: '#3b82f6',
                     pointBackgroundColor: '#3b82f6',
-                    borderWidth: 2
+                    borderWidth: 3
                 }]
             },
             options: {
+                responsive: true,
+                maintainAspectRatio: false,
                 scales: {
                     r: {
                         grid: { color: 'rgba(255,255,255,0.05)' },
                         angleLines: { color: 'rgba(255,255,255,0.05)' },
-                        pointLabels: { color: '#94a3b8', font: { size: 10 } },
+                        pointLabels: { color: '#94a3b8', font: { size: 10, weight: 'bold' } },
                         ticks: { display: false }
                     }
                 },
