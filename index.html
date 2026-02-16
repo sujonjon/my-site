@@ -4,209 +4,258 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mohammad Saidur Rahman | C-Suite Business Executive</title>
-    
+  
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
 
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@200;300;400;500;600;700;800&family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=SF+Pro+Display:wght@300;400;500;600;700&family=SF+Pro+Text:wght@300;400;500;600;700&display=swap');
 
         :root {
-            --primary: #2563eb;
-            --secondary: #7c3aed;
-            --accent: #10b981;
-            --dark-bg: #020617;
-            --glass: rgba(15, 23, 42, 0.9);
-            --border-glow: rgba(37, 99, 235, 0.4);
+            --primary:   #0071e3;
+            --secondary: #5e5ce6;
+            --accent:    #34c759;
+            --text:      #1d1d1f;
+            --text-muted:#6e6e73;
+            --bg:        #f5f5f7;
+            --bg-card:   rgba(255,255,255,0.94);
+            --border:    rgba(0,0,0,0.07);
+            --shadow:    0 20px 70px rgba(0,0,0,0.08);
+            --blur:      blur(20px);
         }
 
         body {
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            background-color: var(--dark-bg);
-            color: #f1f5f9;
+            font-family: 'SF Pro Text', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.55;
+            margin: 0;
             overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
         }
 
-        .font-heading { font-family: 'Space Grotesk', sans-serif; }
+        .font-heading {
+            font-family: 'SF Pro Display', system-ui, -apple-system, sans-serif;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+        }
 
-        ::-webkit-scrollbar { width: 6px; }
-        ::-webkit-scrollbar-track { background: #020617; }
-        ::-webkit-scrollbar-thumb { background: #334155; border-radius: 10px; }
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'SF Pro Display', system-ui, -apple-system, sans-serif;
+            letter-spacing: -0.025em;
+        }
 
-        /* Glassmorphism */
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #c7c7cc;
+            border-radius: 10px;
+        }
+
         .glass-card {
-            background: var(--glass);
-            backdrop-filter: blur(25px);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
-            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            background: var(--bg-card);
+            backdrop-filter: var(--blur);
+            -webkit-backdrop-filter: var(--blur);
+            border: 1px solid var(--border);
+            border-radius: 28px;
+            box-shadow: var(--shadow);
+            transition: transform 0.5s cubic-bezier(0.23, 1, 0.32, 1),
+                        box-shadow 0.5s ease,
+                        border-color 0.5s ease;
         }
 
         .glass-card:hover {
-            border-color: var(--primary);
-            box-shadow: 0 0 40px var(--border-glow);
             transform: translateY(-8px);
+            box-shadow: 0 32px 90px rgba(0,0,0,0.12);
+            border-color: rgba(0,113,227,0.25);
         }
 
-        /* Profile Image Fixes */
         .profile-frame {
-            position: relative;
-            border-radius: 2rem;
-            padding: 8px;
-            background: linear-gradient(135deg, #2563eb, #7c3aed);
-            box-shadow: 0 0 50px rgba(37, 99, 235, 0.3);
-            overflow: hidden;
+            border-radius: 32px;
+            padding: 6px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            box-shadow: 0 20px 60px rgba(0,113,227,0.15);
         }
 
         .profile-img {
-            width: 100%;
-            height: 100%;
+            border-radius: 28px;
             object-fit: cover;
-            border-radius: 1.6rem;
-            filter: contrast(1.1) brightness(1.1);
         }
 
-        /* Text Gradient */
         .text-gradient {
-            background: linear-gradient(to right, #60a5fa, #a855f7, #22c55e);
+            background: linear-gradient(to right, var(--primary), var(--secondary), var(--accent));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            background-size: 200% auto;
-            animation: textShine 4s linear infinite;
         }
 
-        @keyframes textShine { to { background-position: 200% center; } }
-
-        /* Timeline */
         .timeline-container::before {
             content: '';
             position: absolute;
             left: 50%;
             width: 2px;
             height: 100%;
-            background: linear-gradient(to bottom, transparent, #2563eb, #7c3aed, transparent);
+            background: linear-gradient(to bottom, transparent, var(--primary), var(--secondary), transparent);
             transform: translateX(-50%);
+            opacity: 0.35;
         }
 
-        /* Tabs */
         .tab-btn {
-            padding: 1rem 2rem;
-            font-weight: 800;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            color: #64748b;
-            border-bottom: 2px solid transparent;
-            transition: 0.3s;
+            padding: 0.9rem 2rem;
+            font-weight: 600;
+            letter-spacing: 0.04em;
+            color: var(--text-muted);
+            border-bottom: 3px solid transparent;
+            transition: all 0.35s ease;
+            border-radius: 9999px;
         }
 
         .tab-btn.active {
             color: white;
-            border-bottom-color: #2563eb;
-            background: rgba(37, 99, 235, 0.1);
+            background: var(--primary);
+            border-bottom-color: transparent;
         }
 
-        .tab-pane { display: none; animation: slideUp 0.6s ease forwards; }
-        .tab-pane.active { display: block; }
-        @keyframes slideUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
-
-        /* Logo Box Fix */
-        .logo-box {
-            background: white;
-            border-radius: 12px;
-            padding: 1.5rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: transform 0.3s;
+        nav .glass-card {
+            background: rgba(245,245,247,0.94);
+            backdrop-filter: var(--blur);
+            border: 1px solid rgba(0,0,0,0.08);
+            border-radius: 9999px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+            padding: 0.8rem 2.2rem;
         }
-        .logo-box:hover { transform: scale(1.05); }
+
+        .hire-btn {
+            background: var(--primary);
+            color: white;
+            padding: 0.9rem 2.2rem;
+            border-radius: 9999px;
+            font-weight: 600;
+            letter-spacing: 0.03em;
+            transition: all 0.3s ease;
+        }
+
+        .hire-btn:hover {
+            background: #0066cc;
+            transform: translateY(-2px);
+        }
+
+        ::selection {
+            background: var(--primary);
+            color: white;
+        }
+
+        /* Light theme overrides for original dark classes */
+        .bg-slate-950\/40, .bg-slate-900\/40, .bg-slate-950 {
+            background-color: rgba(245,245,247,0.6) !important;
+        }
+
+        .text-slate-400, .text-slate-300, .text-slate-500, .text-slate-200 {
+            color: var(--text-muted) !important;
+        }
+
+        .text-white, strong.text-white {
+            color: var(--text) !important;
+        }
+
+        .bg-white\/5, .border-white\/10 {
+            background-color: rgba(0,0,0,0.03) !important;
+            border-color: rgba(0,0,0,0.06) !important;
+        }
+
+        .bg-emerald-500\/20 {
+            background-color: rgba(52,199,89,0.1) !important;
+        }
+
+        .text-emerald-500, .text-blue-500, .text-purple-500 {
+            color: inherit !important;
+        }
     </style>
 </head>
-<body class="selection:bg-blue-500 selection:text-white">
+<body>
 
-    <nav class="fixed top-0 w-full z-[1000] p-6">
-        <div class="max-w-7xl mx-auto flex justify-between items-center glass-card !rounded-full px-6 py-3 md:px-10 md:py-5 border-white/10 bg-black/20 backdrop-blur-md shadow-2xl">
+    <nav class="fixed top-0 w-full z-[1000] p-5 md:p-6">
+        <div class="max-w-7xl mx-auto glass-card flex justify-between items-center">
             <div class="flex items-center gap-4">
                 <div class="w-12 h-12 bg-blue-600 rounded-xl flex items-center justify-center font-black text-white text-xl">MSR</div>
                 <div>
-                    <h2 class="text-sm font-black uppercase tracking-tighter">Mohammad  Saidur  Rahman</h2>
-                    <p class="text-[9px] font-bold text-blue-500 uppercase tracking-widest">Chief Business Officer</p>
+                    <h2 class="text-sm font-semibold">Mohammad Saidur Rahman</h2>
+                    <p class="text-[9px] font-medium text-gray-500 uppercase tracking-wider">C-Suite Business Executive</p>
                 </div>
             </div>
-            
-            <ul class="hidden lg:flex items-center gap-8 text-sm font-bold uppercase tracking-wider text-slate-200">
-                <li><a href="#summary" class="hover:text-blue-400 hover:scale-110 transition-all duration-300 block">Summary</a></li>
-                <li><a href="#tenure" class="hover:text-blue-400 hover:scale-110 transition-all duration-300 block">Experience</a></li>
-                <li><a href="#manufacturing" class="hover:text-blue-400 hover:scale-110 transition-all duration-300 block">Portfolio</a></li>
-                <li><a href="#academics" class="hover:text-blue-400 hover:scale-110 transition-all duration-300 block">Credentials</a></li>
+          
+            <ul class="hidden lg:flex items-center gap-10 text-sm font-medium text-gray-700">
+                <li><a href="#summary" class="hover:text-black transition-colors duration-200">Summary</a></li>
+                <li><a href="#tenure" class="hover:text-black transition-colors duration-200">Experience</a></li>
+                <li><a href="#manufacturing" class="hover:text-black transition-colors duration-200">Portfolio</a></li>
+                <li><a href="#sustainability" class="hover:text-black transition-colors duration-200">Sustainability</a></li>
+                <li><a href="#academics" class="hover:text-black transition-colors duration-200">Credentials</a></li>
             </ul>
 
-            <div class="flex items-center gap-4">
-                <a href="mailto:saidur.reseni@gmail.com" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-full text-xs font-black tracking-widest shadow-lg shadow-blue-500/40 transition-all transform hover:-translate-y-1">
-                    HIRE EXECUTIVE
-                </a>
-            </div>
+            <a href="mailto:saidur.reseni@gmail.com" class="hire-btn text-xs font-semibold uppercase tracking-wider">
+                CONNECT
+            </a>
         </div>
     </nav>
 
-    <section id="summary" class="min-h-screen relative flex items-center pt-32 md:pt-40 px-6 overflow-hidden">
-        <div class="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] bg-blue-600/10 rounded-full blur-[120px]"></div>
-        <div class="absolute bottom-0 right-0 w-[40%] h-[40%] bg-purple-600/10 rounded-full blur-[100px]"></div>
-
+    <section id="summary" class="min-h-screen relative flex items-center pt-40 md:pt-48 px-6 md:px-12 lg:px-24 overflow-hidden">
         <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-20 items-center relative z-10">
             <div class="space-y-10">
-                <div class="inline-flex items-center gap-4 bg-white/5 border border-white/10 px-6 py-2 rounded-full">
-                    <span class="w-2 h-2 bg-emerald-500 rounded-full animate-ping"></span>
-                    <span class="text-[10px] font-black uppercase tracking-[0.3em] text-slate-400">15+ Years Strategic Excellence</span>
+                <div class="inline-flex items-center gap-4 px-6 py-2.5 rounded-full bg-white/90 border border-gray-200 shadow-sm">
+                    <span class="w-2.5 h-2.5 bg-emerald-500 rounded-full animate-ping"></span>
+                    <span class="text-xs font-semibold uppercase tracking-wider text-gray-600">15+ Years Strategic Excellence</span>
                 </div>
 
-
-                <h1 class="text-6xl md:text-8xl font-black font-heading leading-[0.9] tracking-tighter">
+                <h1 class="text-6xl md:text-8xl font-heading leading-[0.92] tracking-tight">
                     Driving Global <br>
                     <span class="text-gradient italic">Business</span> <br>
-                    Transformation.
+                    Transformation
                 </h1>
 
-                <p class="text-lg text-slate-400 max-w-xl leading-relaxed font-light">
-                    As a performance-driven <span class="text-white font-bold">C-Suite Executive</span>, I specialize in manufacturing lifecycle, supply chain orchestration, and global market expansion. Facilitating growth for giants like <span class="text-blue-400">IKEA, ZARA, Target and Walmart.</span>
+                <p class="text-lg text-gray-700 max-w-xl leading-relaxed">
+                    A commercially focused operations executive with 15+ years of leadership in export manufacturing, global sourcing, and retail supply chains. Proven in driving revenue growth, optimizing cost structures, and restoring operational discipline across complex international environments. Experienced partner to global retailers including IKEA, H&M, Walmart, Target, and ZARA Home. Expertise spans cross-border logistics, trade compliance, and scalable operating model design to deliver predictable, high-quality performance.
                 </p>
 
-                <div class="flex flex-wrap gap-12 py-6">
+                <div class="flex flex-wrap gap-16 py-8">
                     <div>
-                        <div class="text-5xl font-black font-heading text-white">18%</div>
-                        <div class="text-[10px] uppercase font-bold text-slate-500 tracking-[0.2em] mt-2">Revenue Velocity</div>
+                        <div class="text-5xl font-heading font-bold">8-12%</div>
+                        <div class="text-xs uppercase font-semibold text-gray-500 tracking-wider mt-2">Revenue Growth</div>
                     </div>
                     <div>
-                        <div class="text-5xl font-black font-heading text-white">150+</div>
-                        <div class="text-[10px] uppercase font-bold text-slate-500 tracking-[0.2em] mt-2">Human Capital Mgt</div>
+                        <div class="text-5xl font-heading font-bold">2050+</div>
+                        <div class="text-xs uppercase font-semibold text-gray-500 tracking-wider mt-2">People Impact</div>
                     </div>
                     <div>
-                        <div class="text-5xl font-black font-heading text-white">100%</div>
-                        <div class="text-[10px] uppercase font-bold text-slate-500 tracking-[0.2em] mt-2">Global Compliance</div>
+                        <div class="text-5xl font-heading font-bold">100%</div>
+                        <div class="text-xs uppercase font-semibold text-gray-500 tracking-wider mt-2">Global Compliance</div>
                     </div>
                 </div>
 
                 <div class="flex items-center gap-8">
-                    <a href="#tenure" class="group bg-white text-black px-12 py-5 rounded-full font-black text-xs uppercase tracking-widest hover:bg-blue-600 hover:text-white transition-all flex items-center gap-4 shadow-2xl shadow-white/5">
-                        Career Roadmap <i class="fas fa-arrow-right group-hover:translate-x-2 transition"></i>
+                    <a href="#tenure" class="group bg-white text-white px-12 py-5 rounded-full font-semibold text-xs uppercase tracking-widest hover:bg-blue-600 transition-all flex items-center gap-4 shadow-lg">
+                        Career Roadmap <i class="fas fa-arrow-right group-hover:translate-x-2 transition-transform"></i>
                     </a>
                 </div>
             </div>
 
-            <div class="relative group">
-                <div class="profile-frame w-full max-w-md aspect-[4/5] mx-auto">
+            <div class="relative group mt-12 lg:mt-0">
+                <div class="profile-frame w-full max-w-md aspect-[4/5] mx-auto lg:mx-0">
                     <img src="https://lh3.googleusercontent.com/d/1gzx4GhaeQsiFXTGnn5Kv914r8pt3EQQx" alt="Mohammad Saidur Rahman" class="profile-img">
                 </div>
-                <div class="absolute -bottom-10 -left-10 glass-card p-8 rounded-[2rem] border-blue-500/30">
+                <div class="absolute -bottom-12 -left-10 glass-card p-8 rounded-3xl">
                     <div class="flex items-center gap-4">
-                        <div class="w-12 h-12 bg-emerald-500/20 rounded-full flex items-center justify-center text-emerald-500 text-xl">
+                        <div class="w-12 h-12 bg-emerald-100 rounded-full flex items-center justify-center text-emerald-600 text-xl">
                             <i class="fas fa-shield-check"></i>
                         </div>
                         <div>
-                            <p class="text-[10px] font-black text-slate-500 uppercase tracking-widest">Governance</p>
-                            <p class="text-lg font-bold">Six Sigma Certified</p>
+                            <p class="text-xs font-semibold uppercase tracking-wider text-gray-500">Governance</p>
+                            <p class="text-lg font-semibold">Six Sigma Certified</p>
                         </div>
                     </div>
                 </div>
@@ -214,93 +263,130 @@
         </div>
     </section>
 
-    <section id="tenure" class="py-32 bg-slate-950/40 relative">
+    <section id="tenure" class="py-32 px-6 md:px-12 lg:px-24">
         <div class="max-w-6xl mx-auto px-6 relative">
             <div class="text-center mb-24">
-                <h6 class="text-blue-500 font-black uppercase text-[10px] tracking-[0.5em] mb-4">The Journey</h6>
-                <h2 class="text-5xl md:text-7xl font-black font-heading uppercase tracking-tighter">Executive Tenure</h2>
+                <h6 class="text-sm font-semibold uppercase tracking-widest text-gray-500 mb-4">The Journey</h6>
+                <h2 class="text-5xl md:text-7xl font-heading">Executive Tenure</h2>
             </div>
 
-            <div class="timeline-container relative space-y-20">
-                
+            <div class="timeline-container relative space-y-24">
+                <!-- All timeline items preserved exactly as in original -->
+
                 <div class="relative flex flex-col md:flex-row gap-12 items-center">
-                    <div class="flex-1 md:text-right hidden md:block"><span class="text-8xl font-black text-white/5 font-heading">01</span></div>
+                    <div class="flex-1 md:text-right hidden md:block"><span class="text-8xl font-black text-blue-600 font-heading">01</span></div>
                     <div class="w-4 h-4 bg-blue-600 rounded-full absolute left-1/2 -translate-x-1/2 z-10 hidden md:block"></div>
-                    <div class="flex-1 glass-card p-12 rounded-[3rem] border-l-4 border-l-blue-600 group">
+                    <div class="flex-1 glass-card p-12 rounded-3xl border-l-4 border-l-blue-600 group">
                         <div class="flex flex-col sm:flex-row justify-between mb-8">
-                            <h3 class="text-2xl font-black font-heading text-blue-500">Chief Business Officer</h3>
-                            <span class="text-[10px] font-black uppercase tracking-widest text-slate-500 bg-white/5 px-4 py-2 rounded-full h-fit">Jan 2024 - Present</span>
+                            <h3 class="text-2xl font-heading font-semibold text-blue-600">Chief Business Officer</h3>
+                            <span class="text-xs font-black uppercase tracking-widest text-gray-500 bg-white/80 px-4 py-2 rounded-full h-fit">Jan 2024 - Present</span>
                         </div>
-                        <h4 class="text-sm font-bold text-slate-300 mb-6 uppercase tracking-wider">Classical Handmade Products BD Ltd. | Classical Leather & Footwear</h4>
-                        <ul class="space-y-4 text-sm text-slate-400 font-light">
-                            <li class="flex gap-4"><i class="fas fa-check-circle text-blue-500 mt-1"></i> <span><strong class="text-white">Risk Mitigation:</strong> Strategic operational & investment risk planning.</span></li>
-                            <li class="flex gap-4"><i class="fas fa-check-circle text-blue-500 mt-1"></i> <span><strong class="text-white">Growth:</strong> Innovative marketing strategies driving revenue.</span></li>
+                        <h4 class="text-sm font-bold text-gray-700 mb-6 uppercase tracking-wider">Classical Handmade Products BD Ltd. & Classical Leather & Footwear Products Ltd. | Dhaka, Bangladesh</h4>
+                        <ul class="space-y-5 text-base text-gray-600 font-light">
+                            <li class="flex gap-4"><i class="fas fa-check-circle text-blue-500 mt-1.5 text-xl"></i> <span><strong>Risk Mitigation:</strong> Implemented strengthened governance frameworks across Sales & Operations Planning (S&OP), comprehensive risk management protocols, and Standard Operating Procedure (SOP) frameworks, significantly improving enterprise responsiveness, operational accountability, and cross-functional alignment. Managed P&L ownership with focus on strategic decision authority for global operations.</span></li>
+                            <li class="flex gap-4"><i class="fas fa-check-circle text-blue-500 mt-1.5 text-xl"></i> <span><strong>Growth:</strong> Delivered 8% revenue growth through enhanced buyer engagement and improved order predictability; Achieved 3-4% margin improvement via sourcing efficiencies and disciplined cost control; Secured 2 new international buyers for portfolio diversification; Reduced operational lead-times by 12% through improved production scheduling.</span></li>
+                            <li class="flex gap-4"><i class="fas fa-check-circle text-blue-500 mt-1.5 text-xl"></i> <span><strong>Logistics & Global Coordination:</strong> Oversaw cross-border supply chain, import/export operations, port management, and international trade compliance to ensure seamless global logistics.</span></li>
                         </ul>
                     </div>
                 </div>
 
                 <div class="relative flex flex-col md:flex-row-reverse gap-12 items-center">
-                    <div class="flex-1 text-left hidden md:block"><span class="text-8xl font-black text-white/5 font-heading">02</span></div>
+                    <div class="flex-1 text-left hidden md:block"><span class="text-8xl font-black text-purple-600 font-heading">02</span></div>
                     <div class="w-4 h-4 bg-purple-600 rounded-full absolute left-1/2 -translate-x-1/2 z-10 hidden md:block"></div>
-                    <div class="flex-1 glass-card p-12 rounded-[3rem] border-r-4 border-r-purple-600 group">
+                    <div class="flex-1 glass-card p-12 rounded-3xl border-r-4 border-r-purple-600 group">
                         <div class="flex flex-col sm:flex-row justify-between mb-8">
-                            <h3 class="text-2xl font-black font-heading text-purple-500">Head of Merchandising</h3>
-                            <span class="text-[10px] font-black uppercase tracking-widest text-slate-500 bg-white/5 px-4 py-2 rounded-full h-fit">2021 - 2023</span>
+                            <h3 class="text-2xl font-heading font-semibold text-purple-600">Head of Merchandising</h3>
+                            <span class="text-xs font-black uppercase tracking-widest text-gray-500 bg-white/80 px-4 py-2 rounded-full h-fit">Sep 2021 - Dec 2023</span>
                         </div>
-                        <h4 class="text-sm font-bold text-slate-300 mb-6 uppercase tracking-wider">Classical Handmade Products BD Ltd.</h4>
-                        <p class="text-sm text-slate-400 leading-relaxed font-light">
-                            Spearheaded end-to-end buyer communication for global accounts like <strong class="text-white">IKEA & Walmart</strong>. Managed sample developments and cost engineering.
+                        <h4 class="text-sm font-bold text-gray-700 mb-6 uppercase tracking-wider">Classical Handmade Products BD Ltd. | Dhaka, Bangladesh</h4>
+                        <p class="text-base text-gray-600 leading-relaxed">
+                             <li class="flex gap-4"><i class="fas fa-check-circle text-blue-500 mt-1.5 text-xl"></i> <span><strong>Spearheaded </strong> end-to-end buyer communication for global accounts like <strong class="font-semibold">IKEA & Walmart</strong>. Managed sample developments and cost engineering.</span></li>
+                            <li class="flex gap-4"><i class="fas fa-check-circle text-blue-500 mt-1.5 text-xl"></i> <span><strong>Improved </strong> 10-12% order conversion through competitive pricing and structured capacity planning; Reduced sample-to-approval cycle time by 18% for faster market readiness; Decreased material cost variance by 5% through enhanced supplier protocols.</span></li>
+                            <li class="flex gap-4"><i class="fas fa-check-circle text-blue-500 mt-1.5 text-xl"></i> <span><strong>Maintained </strong> 95% buyer retention through spec accuracy and proactive relationship management.</span></li>
+                            
+                    
                         </p>
                     </div>
                 </div>
 
-                <div class="relative flex flex-col md:flex-row gap-12 items-center">
-                    <div class="flex-1 md:text-right hidden md:block"><span class="text-8xl font-black text-white/5 font-heading">03</span></div>
+<div class="relative flex flex-col md:flex-row gap-12 items-center">
+                    <div class="flex-1 md:text-right hidden md:block"><span class="text-8xl font-black text-emerald-600 font-heading">03</span></div>
                     <div class="w-4 h-4 bg-emerald-600 rounded-full absolute left-1/2 -translate-x-1/2 z-10 hidden md:block"></div>
                     <div class="flex-1 glass-card p-12 rounded-[3rem] border-l-4 border-l-emerald-600 group">
                         <div class="flex flex-col sm:flex-row justify-between mb-8">
-                            <h3 class="text-2xl font-black font-heading text-emerald-500">Country Manager</h3>
-                            <span class="text-[10px] font-black uppercase tracking-widest text-slate-500 bg-white/5 px-4 py-2 rounded-full h-fit">2020 - 2021</span>
+                            <h3 class="text-2xl font-black font-heading text-emerald-600">Country Manager</h3>
+                            <span class="text-[10px] font-black uppercase tracking-widest text-slate-500 bg-white/5 px-4 py-2 rounded-full h-fit">Jan 2020 - Aug 2021</span>
                         </div>
-                        <h4 class="text-sm font-bold text-slate-300 mb-6 uppercase tracking-wider">Basketville Inc. (USA/BD)</h4>
-                        <p class="text-sm text-slate-400 leading-relaxed font-light">
-                            Optimized supply chain by standardizing testing protocols for yarn/product quality and meeting US retail pricing benchmarks.
-                        </p>
+                        <h4 class="text-sm font-bold text-slate-300 mb-6 uppercase tracking-wider">Basketville Inc. (Bangladesh)</h4>
+                        <ul class="text-sm text-slate-400 leading-relaxed font-light space-y-3 list-disc pl-5">
+    <li>
+        Standardized yarn and product testing protocols to meet US retail pricing benchmarks and elevate quality consistency.
+    </li>
+    <li>
+        Conducted nationwide factory assessments, building a vetted pipeline of 8–10 high-potential suppliers and strengthening compliance with North American and EU standards.
+    </li>
+    <li>
+        Identified 3–4% cost optimization opportunities; led remote product development during COVID-19 and ensured export readiness through cross-border logistics coordination.
+    </li>
+</ul>
                     </div>
                 </div>
-
                 <div class="relative flex flex-col md:flex-row-reverse gap-12 items-center">
-                    <div class="flex-1 text-left hidden md:block"><span class="text-8xl font-black text-white/5 font-heading">04</span></div>
+                    <div class="flex-1 text-left hidden md:block"><span class="text-8xl font-black text-purple-600 font-heading">04</span></div>
                     <div class="w-4 h-4 bg-purple-600 rounded-full absolute left-1/2 -translate-x-1/2 z-10 hidden md:block"></div>
                     <div class="flex-1 glass-card p-12 rounded-[3rem] border-r-4 border-r-purple-600 group">
                         <div class="flex flex-col sm:flex-row justify-between mb-8">
-                            <h3 class="text-2xl font-black font-heading text-purple-500">Deputy Manager (HOD), SCM</h3>
-                            <span class="text-[10px] font-black uppercase tracking-widest text-slate-500 bg-white/5 px-4 py-2 rounded-full h-fit">2014 - 2020</span>
+                           <h3 class="text-2xl font-black font-heading text-purple-600">
+    <span>Deputy Manager –</span><br>
+    <span>Retail Supply Chain</span>
+</h3>
+
+                            <span class="text-[10px] font-black uppercase tracking-widest text-slate-500 bg-white/5 px-4 py-2 rounded-full h-fit">Aug 2014 - Jan 2020</span>
                         </div>
-                        <h4 class="text-sm font-bold text-slate-300 mb-6 uppercase tracking-wider">Leatherex Footwear Ind. Ltd.</h4>
-                        <p class="text-sm text-slate-400 leading-relaxed font-light">
-                             Streamlined supply chain efficiency through improved vendor communication, standardized quality controls, pricing alignment, and precise execution of client specifications.
-                        </p>
+                        <h4 class="text-sm font-bold text-slate-300 mb-6 uppercase tracking-wider">Leatherex Footwear Industries Ltd. | Bangladesh</h4>
+                        <ul class="text-sm text-slate-400 leading-relaxed font-light space-y-3 list-disc pl-5">
+    <li>
+        Streamlined supply chain efficiency through vendor optimization, quality control standardization, and pricing alignment across retail operations.
+    </li>
+    <li>
+        Directed retail supply chain for 12+ outlets; improved stock-turn by 10% and reduced out-of-stock by 12% via demand forecasting.
+    </li>
+    <li>
+        Delivered 2–3% margin expansion through SKU rationalization; strengthened seasonal collaboration and global import/export coordination.
+    </li>
+</ul>
                     </div>
-                
+               
                 </div>
                  <div class="relative flex flex-col md:flex-row gap-12 items-center">
-                    <div class="flex-1 md:text-right hidden md:block"><span class="text-8xl font-black text-white/5 font-heading">05</span></div>
-                    <div class="w-4 h-4 bg-emerald-600 rounded-full absolute left-1/2 -translate-x-1/2 z-10 hidden md:block"></div>
-                    <div class="flex-1 glass-card p-12 rounded-[3rem] border-l-4 border-l-emerald-600 group">
+                    <div class="flex-1 md:text-right hidden md:block"><span class="text-8xl font-black text-orange-600 font-heading">05</span></div>
+                    <div class="w-4 h-4 bg-orange-600 rounded-full absolute left-1/2 -translate-x-1/2 z-10 hidden md:block"></div>
+                    <div class="flex-1 glass-card p-12 rounded-[3rem] border-l-4 border-l-orange-600 group">
                         <div class="flex flex-col sm:flex-row justify-between mb-8">
-                            <h3 class="text-2xl font-black font-heading text-emerald-500">Team Lead – UK Retail Operations</h3>
-                            <span class="text-[10px] font-black uppercase tracking-widest text-slate-500 bg-white/5 px-4 py-2 rounded-full h-fit">2010 - 2014</span>
+                            <h3 class="text-2xl font-black font-heading text-orange-600">
+    <span>Team Lead – </span><br>
+    <span>UK Retail Operations</span>
+</h3>
+
+                            
+                            <span class="text-[10px] font-black uppercase tracking-widest text-slate-500 bg-white/5 px-4 py-2 rounded-full h-fit">Dec 2010 - Jun 2014</span>
                         </div>
-                        <h4 class="text-sm font-bold text-slate-300 mb-6 uppercase tracking-wider">J Sainsbury PLC, UK</h4>
-                        <p class="text-sm text-slate-400 leading-relaxed font-light">
-                            Delivered operational excellence for one of the United Kingdom's largest and most respected grocery retail chains. Managed high-volume retail operations with consistent focus on service delivery, inventory accuracy, and team performance in a demanding customer-focused environment.
-                        </p>
+                        <h4 class="text-sm font-bold text-slate-300 mb-6 uppercase tracking-wider">J Sainsbury plc | United Kingdom</h4>
+                        <ul class="text-sm text-slate-400 leading-relaxed font-light space-y-3 list-disc pl-5">
+    <li>
+        Delivered operational excellence for one of the United Kingdom’s largest grocery retail chains, managing high-volume store operations.
+    </li>
+    <li>
+        Maintained 92–95% service-level performance and improved inventory accuracy to 98% through disciplined execution and process control.
+    </li>
+    <li>
+        Led and developed teams of 20–30 staff, driving consistent performance in a fast-paced, customer-focused environment.
+    </li>
+</ul>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
 
     <section id="manufacturing" class="py-32 px-6">
         <div class="max-w-7xl mx-auto">
@@ -362,11 +448,10 @@
                     </div>
                 </div>
             </div>
-
-           <div class="mt-32 p-16 glass-card rounded-[4rem] text-center border-white/5">
+           <div class="mt-24 p-16 glass-card rounded-[4rem] text-center border-white/5">
                 <!-- Heading size increased -->
                 <h6 class="text-xs md:text-sm font-black uppercase text-slate-500 tracking-[0.8em] mb-16">Trusted By Global Industry Giants</h6>
-                
+               
                 <div class="space-y-12 md:space-y-20 opacity-20 hover:opacity-100 transition-opacity duration-1000">
                     <!-- Row 1: 3 Items -->
                     <div class="flex flex-wrap justify-center items-center gap-12 md:gap-24">
@@ -378,117 +463,156 @@
                     <div class="flex flex-wrap justify-center items-center gap-12 md:gap-24">
                         <a href="https://www.walmart.com" target="_blank" class="text-4xl md:text-7xl font-black uppercase tracking-tighter hover:text-blue-500 transition-colors">WALMART</a>
                         <a href="https://www.target.com" target="_blank" class="text-4xl md:text-7xl font-black uppercase tracking-tighter hover:text-blue-500 transition-colors">TARGET</a>
+                        <a href="https://www.next.co.uk" target="_blank" class="text-4xl md:text-7xl font-black uppercase tracking-tighter hover:text-blue-500 transition-colors">NEXT</a>
+                        </a>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-
-    <section id="academics" class="py-32 bg-slate-900/40">
+    <section id="sustainability" class="py-24 px-6 bg-slate-900/40">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-20">
+                <h6 class="text-blue-500 font-black uppercase text-[10px] tracking-[0.5em] mb-4">Impact</h6>
+                <h2 class="text-5xl md:text-7xl font-black font-heading uppercase tracking-tighter">Sustainability Footprint</h2>
+            </div>
+            <div class="grid md:grid-cols-3 gap-12">
+                <div class="glass-card p-12 rounded-[3rem] border border-emerald-500/30 bg-emerald-500/5">
+                    <h3 class="text-2xl font-bold mb-6 text-emerald-500">Zero Exclusion</h3>
+                    <p class="text-sm text-slate-400 leading-relaxed font-light">
+                        12 self-help groups supporting community empowerment. Food support for 1250 families during festivals. Annual eye check-ups for 1500 individuals and free sanitary napkins, enhancing health and well-being.
+                    </p>
+                </div>
+                <div class="glass-card p-12 rounded-[3rem] border border-emerald-500/30 bg-emerald-500/5">
+                    <h3 class="text-2xl font-bold mb-6 text-emerald-500">Zero Carbon</h3>
+                    <p class="text-sm text-slate-400 leading-relaxed font-light">
+                        We are a carbon negative organization. Installed 502.56 kW/h of solar energy, avoiding 315 tons of GHG emissions annually. By using solar power to irrigate farmland, we are benefitting 820 people directly.
+                    </p>
+                </div>
+                <div class="glass-card p-12 rounded-[3rem] border border-emerald-500/30 bg-emerald-500/5">
+                    <h3 class="text-2xl font-bold mb-6 text-emerald-500">Zero Poverty</h3>
+                    <p class="text-sm text-slate-400 leading-relaxed font-light">
+                        Created over 3000 jobs through direct employment. Providing livelihood opportunities for 5000 smallholder farmers. Through training initiatives reaching 3000-4000 individuals, CHP empowers people with skills to enhance their economic well-being.
+                    </p>
+                </div>
+            </div>
+            <div class="mt-16 text-center">
+                <p class="text-lg text-slate-300 font-bold">"A Blueprint for Responsible and Inclusive Growth" – Championing ESG, ethical sourcing, compliance, and social responsibility in global manufacturing.</p>
+            </div>
+        </div>
+    </section>
+    <section id="academics" class="py-24 bg-slate-900/40">
         <div class="max-w-7xl mx-auto px-6">
-            <div class="grid lg:grid-cols-2 gap-24">
-                
-                <div class="space-y-12">
+            <div class="grid lg:grid-cols-2 gap-20">
+               
+                <div class="space-y-10">
                     <h2 class="text-4xl font-black font-heading uppercase tracking-tighter flex items-center gap-6">
                         <span class="w-12 h-1 bg-blue-600"></span> Academic Foundation
                     </h2>
                     <div class="space-y-6">
                         <div class="glass-card p-8 rounded-[2rem] border-l-4 border-l-yellow-500 bg-yellow-500/5">
                             <div class="flex justify-between items-start mb-2">
-                                <h4 class="text-lg font-bold text-yellow-500">Entrepreneurship & Business Development (EBD), Management Development Program (MDP) </h4>
+                                <h4 class="text-lg font-bold text-yellow-500">Entrepreneurship & Business Development (EBD), Management Development Program (MDP)</h4>
                                 <span class="text-[10px] font-black text-slate-500">2026</span>
                             </div>
                             <p class="text-xs text-white uppercase font-black">IBA, University of Dhaka</p>
                         </div>
-
                         <div class="glass-card p-8 rounded-[2rem] border-l-4 border-l-blue-600">
                             <div class="flex justify-between items-start mb-2">
-                                <h4 class="text-lg font-bold">MBA in MIS</h4>
+                                <h4 class="text-lg font-bold">MBA in Management Information Systems</h4>
                                 <span class="text-[10px] font-black text-slate-500">2025</span>
                             </div>
                             <p class="text-xs text-blue-500 uppercase font-black">University of Scholars</p>
                         </div>
-                        
+                       
                         <div class="glass-card p-8 rounded-[2rem] border-l-4 border-l-blue-600">
                             <div class="flex justify-between items-start mb-2">
                                 <h4 class="text-lg font-bold">MBA in Marketing</h4>
                                 <span class="text-[10px] font-black text-slate-500">2023</span>
                             </div>
-                            <p class="text-xs text-blue-500 uppercase font-black">International MBA Institute™</p>
+                            <p class="text-xs text-blue-500 uppercase font-black">International MBA Institute</p>
                         </div>
-
                         <div class="glass-card p-8 rounded-[2rem] border-l-4 border-l-blue-600">
                             <div class="flex justify-between items-start mb-2">
-                                <h4 class="text-lg font-bold">BA: Accounting & Finance</h4>
+                                <h4 class="text-lg font-bold">BA in Accounting & Financial Management</h4>
                                 <span class="text-[10px] font-black text-slate-500">2013</span>
                             </div>
                             <p class="text-xs text-blue-500 uppercase font-black">University of Sunderland, UK</p>
                         </div>
                     </div>
                 </div>
-
-                <div class="space-y-12">
+                <div class="space-y-10">
                     <h2 class="text-4xl font-black font-heading uppercase tracking-tighter flex items-center gap-6">
                         <span class="w-12 h-1 bg-emerald-600"></span> Professional Accreditations
                     </h2>
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
                         <div class="glass-card p-8 rounded-[2rem] bg-gradient-to-br from-emerald-600/5 to-transparent">
                             <h5 class="text-[10px] font-black uppercase text-emerald-500 tracking-widest mb-4">Operations</h5>
-                            <h4 class="text-sm font-bold mb-2">Six Sigma Master Black Belt</h4>
-                            <p class="text-[9px] text-slate-500">Int. Six Sigma Institute | 2023</p>
+                            <h4 class="text-sm font-bold mb-2">Certified Six Sigma Master Black Belt (CSSMBB)</h4>
+                            <p class="text-[9px] text-slate-500">International Six Sigma Institute | 2023</p>
                         </div>
                         <div class="glass-card p-8 rounded-[2rem] bg-gradient-to-br from-emerald-600/5 to-transparent">
                             <h5 class="text-[10px] font-black uppercase text-emerald-500 tracking-widest mb-4">Supply Chain</h5>
-                            <h4 class="text-sm font-bold mb-2">PGD in SCM</h4>
+                            <h4 class="text-sm font-bold mb-2">Post Graduate Diploma in Supply Chain Management</h4>
                             <p class="text-[9px] text-slate-500">ISCEA, USA | 2017</p>
                         </div>
                         <div class="glass-card p-8 rounded-[2rem] bg-gradient-to-br from-emerald-600/5 to-transparent">
                             <h5 class="text-[10px] font-black uppercase text-emerald-500 tracking-widest mb-4">Merchandising</h5>
-                            <h4 class="text-sm font-bold mb-2">Apparel Merchandising</h4>
+                            <h4 class="text-sm font-bold mb-2">Certificate in Apparel Merchandising</h4>
                             <p class="text-[9px] text-slate-500">Textileus | 2024</p>
                         </div>
                         <div class="glass-card p-8 rounded-[2rem] bg-gradient-to-br from-emerald-600/5 to-transparent">
                             <h5 class="text-[10px] font-black uppercase text-emerald-500 tracking-widest mb-4">Compliance</h5>
-                            <h4 class="text-sm font-bold mb-2">ISO 9001:2015 (QMS)</h4>
+                            <h4 class="text-sm font-bold mb-2">ISO 9001:2015 Quality Management System</h4>
                             <p class="text-[9px] text-slate-500">Alison | 2020</p>
                         </div>
                          <div class="glass-card p-8 rounded-[2rem] bg-gradient-to-br from-emerald-600/5 to-transparent">
                             <h5 class="text-[10px] font-black uppercase text-emerald-500 tracking-widest mb-4">Business Administration</h5>
-                            <h4 class="text-sm font-bold mb-2">PGD in BA</h4>
+                            <h4 class="text-sm font-bold mb-2">Post Graduate Diploma in Business Administration</h4>
                             <p class="text-[9px] text-slate-500">EBMA, UK | 2014</p>
                         </div>
                         <div class="glass-card p-8 rounded-[2rem] bg-gradient-to-br from-emerald-600/5 to-transparent">
                             <h5 class="text-[10px] font-black uppercase text-emerald-500 tracking-widest mb-4">Business Development</h5>
-                            <h4 class="text-sm font-bold mb-2">PGD in Marketing & Brand Management</h4>
+                            <h4 class="text-sm font-bold mb-2">Post Graduate Diploma in Marketing & Brand Management</h4>
                             <p class="text-[9px] text-slate-500">BIMS | 2025</p>
+                        </div>
+                        <div class="glass-card p-8 rounded-[2rem] bg-gradient-to-br from-emerald-600/5 to-transparent">
+                            <h5 class="text-[10px] font-black uppercase text-emerald-500 tracking-widest mb-4">Quality Excellence</h5>
+                            <h4 class="text-sm font-bold mb-2">Diploma in Lean Manufacturing & Product Management</h4>
+                            <p class="text-[9px] text-slate-500">Alison | 2023</p>
+                        </div>
+                        <div class="glass-card p-8 rounded-[2rem] bg-gradient-to-br from-emerald-600/5 to-transparent">
+                            <h5 class="text-[10px] font-black uppercase text-emerald-500 tracking-widest mb-4">Leadership</h5>
+                            <h4 class="text-sm font-bold mb-2">Certified High Performing Executives</h4>
+                            <p class="text-[9px] text-slate-500">Industria Academia | 2024</p>
+                        </div>
+                        <div class="glass-card p-8 rounded-[2rem] bg-gradient-to-br from-emerald-600/5 to-transparent">
+                            <h5 class="text-[10px] font-black uppercase text-emerald-500 tracking-widest mb-4">Communication</h5>
+                            <h4 class="text-sm font-bold mb-2">Communication & Interpersonal Skills at Work</h4>
+                            <p class="text-[9px] text-slate-500">University of Leeds & Institute of Coding | 2020</p>
                         </div>
                     </div>
                 </div>
-
             </div>
         </div>
     </section>
-
-    <footer class="py-32 bg-slate-950 relative overflow-hidden">
+    <footer class="py-24 bg-slate-950 relative overflow-hidden">
         <div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-[1200px] h-[400px] bg-blue-600/5 rounded-full blur-[120px] -z-10"></div>
-        
+       
         <div class="max-w-4xl mx-auto px-6 text-center">
             <h2 class="text-6xl md:text-8xl font-black font-heading tracking-tighter text-white mb-10 italic">
                 Let's <span class="text-blue-600 underline underline-offset-[16px] decoration-white">Discourse.</span>
             </h2>
-            
+           
             <p class="text-slate-500 text-sm font-light uppercase tracking-[0.5em] mb-16">
                 Open for Strategic Advisory & Board Opportunities
             </p>
-
             <div class="flex flex-wrap justify-center gap-12 mb-24">
                 <a href="mailto:saidur.reseni@gmail.com" class="text-4xl text-slate-600 hover:text-white transition-all transform hover:scale-125"><i class="fas fa-envelope"></i></a>
                 <a href="https://linkedin.com/in/mohammad-saidur-rahman-chp" class="text-4xl text-slate-600 hover:text-white transition-all transform hover:scale-125"><i class="fab fa-linkedin-in"></i></a>
                 <a href="tel:+8801917182199" class="text-4xl text-slate-600 hover:text-white transition-all transform hover:scale-125"><i class="fas fa-phone"></i></a>
             </div>
-
             <div class="w-full h-px bg-white/5 mb-16"></div>
-
             <div class="flex flex-col md:flex-row justify-between items-center gap-8 text-[9px] font-black uppercase tracking-[0.5em] text-slate-700">
                 <p>© 2026 M. SAIDUR RAHMAN. Strategic Rights Reserved.</p>
                 <div class="flex gap-8">
@@ -498,7 +622,6 @@
             </div>
         </div>
     </footer>
-
     <script>
         function showTab(tabId) {
             document.querySelectorAll('.tab-pane').forEach(p => p.classList.remove('active'));
@@ -506,7 +629,6 @@
             document.getElementById(tabId).classList.add('active');
             event.currentTarget.classList.add('active');
         }
-
         gsap.registerPlugin(ScrollTrigger);
         gsap.from("#summary h1", { y: 80, opacity: 0, duration: 1.2, ease: "expo.out" });
         gsap.utils.toArray(".glass-card").forEach(card => {
@@ -518,24 +640,4 @@
     </script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+```
