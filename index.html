@@ -137,18 +137,18 @@
             background: var(--primary);
         }
 
-        nav .nav-container {
-            background: rgba(245,245,247,0.94);
+        nav .nav-glass-container {
+            background: rgba(245,245,247,0.85);
             backdrop-filter: var(--blur);
             -webkit-backdrop-filter: var(--blur);
             border: 1px solid rgba(0,0,0,0.08);
             border-radius: 9999px;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
-            padding: 0.6rem 1.2rem;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.06);
+            padding: 0.6rem 1rem;
         }
 
         @media (min-width: 768px) {
-            nav .nav-container {
+            nav .nav-glass-container {
                 padding: 0.8rem 2.2rem;
             }
         }
@@ -156,7 +156,7 @@
         .hire-btn {
             background: var(--primary);
             color: white !important;
-            padding: 0.6rem 1.2rem;
+            padding: 0.5rem 1rem;
             border-radius: 9999px;
             font-weight: 600;
             letter-spacing: 0.03em;
@@ -182,8 +182,8 @@
             display: block;
         }
 
-        /* Mobile Mobile Menu Styles */
-        #mobile-menu {
+        /* Mobile Flyout Nav Overlay Styles */
+        #mobile-menu-overlay {
             transition: opacity 0.3s ease, transform 0.3s ease;
         }
 
@@ -192,7 +192,7 @@
             color: white;
         }
 
-        /* Theme Overrides for Original Classes */
+        /* Light theme overrides for original dark classes */
         .bg-slate-950\/40, .bg-slate-900\/40, .bg-slate-950 {
             background-color: rgba(245,245,247,0.6) !important;
         }
@@ -219,14 +219,14 @@
         }
     </style>
 </head>
-<body class="antialiased">
+<body>
 
     <nav class="fixed top-0 w-full z-[1000] p-4 md:p-6">
-        <div class="max-w-7xl mx-auto nav-container flex justify-between items-center">
-            <div class="flex items-center gap-3 md:gap-4">
-                <div class="w-10 h-10 md:w-12 md:h-12 bg-blue-600 rounded-xl flex items-center justify-center font-black text-white text-lg md:text-xl shrink-0">MSR</div>
+        <div class="max-w-7xl mx-auto nav-glass-container flex justify-between items-center">
+            <div class="flex items-center gap-2 md:gap-4 max-w-[55%] sm:max-w-none">
+                <div class="w-10 h-10 md:w-12 md:h-12 bg-blue-600 rounded-xl flex items-center justify-center font-black text-white text-base md:text-xl shrink-0">MSR</div>
                 <div class="truncate">
-                    <h2 class="text-xs md:text-sm font-semibold truncate">Mohammad Saidur Rahman</h2>
+                    <h2 class="text-xs md:text-sm font-semibold truncate text-gray-900">Mohammad Saidur Rahman</h2>
                     <p class="text-[8px] md:text-[9px] font-medium text-gray-500 uppercase tracking-wider truncate">C-Suite Business Executive</p>
                 </div>
             </div>
@@ -239,22 +239,22 @@
                 <li><a href="#academics" class="hover:text-black transition-colors duration-200">Credentials</a></li>
             </ul>
 
-            <div class="flex items-center gap-3">
+            <div class="flex items-center gap-2 sm:gap-4">
                 <a href="mailto:saidur.reseni@gmail.com" class="hire-btn text-[10px] md:text-xs font-semibold uppercase tracking-wider">
                     CONNECT
                 </a>
-                <button id="menu-toggle" class="lg:hidden text-gray-700 focus:outline-none p-2 text-xl" aria-label="Toggle Menu">
+                <button id="hamburger-open" class="lg:hidden text-gray-800 hover:text-blue-600 focus:outline-none p-2 text-xl" aria-label="Open Navigation Menu">
                     <i class="fas fa-bars"></i>
                 </button>
             </div>
         </div>
     </nav>
 
-    <div id="mobile-menu" class="fixed inset-0 bg-white/95 backdrop-blur-lg z-[999] hidden flex-col justify-center items-center opacity-0 scale-95 pointer-events-none transition-all duration-300">
-        <button id="menu-close" class="absolute top-8 right-8 text-2xl text-gray-700 p-2" aria-label="Close Menu">
+    <div id="mobile-menu-overlay" class="fixed inset-0 bg-white/98 backdrop-blur-xl z-[2000] hidden flex-col justify-center items-center opacity-0 scale-95 pointer-events-none transition-all duration-300">
+        <button id="hamburger-close" class="absolute top-6 right-6 text-2xl text-gray-700 p-3 hover:text-red-500 focus:outline-none" aria-label="Close Navigation Menu">
             <i class="fas fa-times"></i>
         </button>
-        <ul class="flex flex-col items-center gap-8 text-xl font-medium text-gray-800">
+        <ul class="flex flex-col items-center gap-8 text-2xl font-bold font-heading text-gray-900">
             <li><a href="#summary" class="mobile-nav-link hover:text-blue-600 transition-colors">Summary</a></li>
             <li><a href="#tenure" class="mobile-nav-link hover:text-blue-600 transition-colors">Experience</a></li>
             <li><a href="#manufacturing" class="mobile-nav-link hover:text-blue-600 transition-colors">Portfolio</a></li>
@@ -271,7 +271,7 @@
                     <span class="text-[10px] md:text-xs font-semibold uppercase tracking-wider text-gray-600 truncate">16+ Years Strategic Excellence</span>
                 </div>
 
-                <h1 class="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-heading leading-[1.05] lg:leading-[0.92] tracking-tight">
+                <h1 class="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-heading leading-[1.05] lg:leading-[0.92] tracking-tight text-gray-950">
                     Driving Global <br class="hidden sm:inline">
                     <span class="text-gradient italic">Business</span> <br>
                     Transformation
@@ -296,7 +296,7 @@
                     </div>
                 </div>
 
-                <div class="pt-4">
+                <div class="pt-2">
                     <a href="#tenure" class="group inline-flex bg-white border border-gray-200 text-gray-800 px-8 py-4 rounded-full font-semibold text-[10px] md:text-xs uppercase tracking-widest hover:bg-blue-600 hover:text-white transition-all items-center gap-4 shadow-md">
                         Career Roadmap <i class="fas fa-arrow-right group-hover:translate-x-2 transition-transform"></i>
                     </a>
@@ -307,14 +307,14 @@
                 <div class="profile-frame w-full max-w-[280px] sm:max-w-md aspect-[4/5] mx-auto lg:mx-0">
                     <img src="https://lh3.googleusercontent.com/d/1gzx4GhaeQsiFXTGnn5Kv914r8pt3EQQx" alt="Mohammad Saidur Rahman" class="profile-img w-full h-full">
                 </div>
-                <div class="absolute -bottom-6 -left-4 sm:-bottom-12 sm:-left-10 glass-card p-4 sm:p-8 rounded-2xl sm:rounded-3xl shadow-lg max-w-[240px] sm:max-w-xs">
+                <div class="absolute -bottom-6 -left-4 sm:-bottom-12 sm:-left-10 glass-card p-4 sm:p-6 rounded-2xl sm:rounded-3xl shadow-lg max-w-[220px] sm:max-w-xs">
                     <div class="flex items-center gap-3 sm:gap-4">
                         <div class="w-10 h-10 sm:w-12 sm:h-12 bg-emerald-100 rounded-full flex items-center justify-center text-emerald-600 text-lg sm:text-xl shrink-0">
                             <i class="fas fa-shield-check"></i>
                         </div>
                         <div>
                             <p class="text-[10px] font-semibold uppercase tracking-wider text-gray-500">Governance</p>
-                            <p class="text-sm sm:text-lg font-semibold whitespace-nowrap">Six Sigma Certified</p>
+                            <p class="text-xs sm:text-lg font-semibold whitespace-nowrap">Six Sigma Certified</p>
                         </div>
                     </div>
                 </div>
@@ -326,7 +326,7 @@
         <div class="max-w-6xl mx-auto relative">
             <div class="text-center mb-16 md:mb-24">
                 <h6 class="text-xs md:text-sm font-semibold uppercase tracking-widest text-gray-500 mb-2 md:mb-4">The Journey</h6>
-                <h2 class="text-3xl sm:text-4xl md:text-7xl font-heading">Executive Tenure</h2>
+                <h2 class="text-3xl sm:text-4xl md:text-7xl font-heading text-gray-950">Executive Tenure</h2>
             </div>
 
             <div class="timeline-container relative space-y-12 md:space-y-24">
@@ -393,7 +393,7 @@
                         <h4 class="text-xs font-bold text-gray-700 mb-4 md:mb-6 uppercase tracking-wider">Leatherex Footwear Industries Ltd. | Bangladesh</h4>
                         <ul class="text-sm text-gray-600 leading-relaxed font-light space-y-3 list-disc pl-5">
                             <li>Streamlined supply chain efficiency through vendor optimization, quality control standardization, and pricing alignment across retail operations.</li>
-                            <li>Directed retail supply chain for 12+ outlets; improved stock-turn by 10% and reduced out-of-stock by 12% via demand forecasting.</li>
+                            <li>Directing retail supply chain operations for 12+ outlets; expanded standard sales throughput limits dynamically across operational points.</li>
                             <li>Delivered 2–3% margin expansion through SKU rationalization; strengthened seasonal collaboration and global import/export coordination.</li>
                         </ul>
                     </div>
@@ -422,12 +422,12 @@
 
     <section id="manufacturing" class="py-16 md:py-32 px-4 sm:px-6 md:px-12 lg:px-24">
         <div class="max-w-7xl mx-auto">
-            <div class="flex flex-col sm:flex-row justify-between items-start sm:items-end mb-12 md:mb-20 gap-6">
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-12 md:mb-20 gap-6">
                 <div>
                     <h6 class="text-blue-500 font-black uppercase text-[10px] tracking-[0.5em] mb-2 md:mb-4">Production Assets</h6>
-                    <h2 class="text-3xl md:text-5xl font-black font-heading uppercase tracking-tighter">Manufacturing Units</h2>
+                    <h2 class="text-3xl md:text-5xl font-black font-heading uppercase tracking-tighter text-gray-950">Manufacturing Units</h2>
                 </div>
-                <div class="flex bg-gray-200/50 rounded-full p-1.5 border border-gray-300/40 overflow-x-auto max-w-full">
+                <div class="flex bg-gray-200/60 rounded-full p-1.5 border border-gray-300/40 overflow-x-auto max-w-full">
                     <button class="tab-btn active" onclick="showTab(event, 'home-decor')">Natural Materials</button>
                     <button class="tab-btn" onclick="showTab(event, 'leather-units')">Footwear & Leather</button>
                 </div>
@@ -486,12 +486,12 @@
                 <h6 class="text-[10px] md:text-sm font-black uppercase text-gray-400 tracking-[0.4em] md:tracking-[0.8em] mb-8 md:mb-16">Trusted By Global Industry Giants</h6>
                
                 <div class="space-y-8 md:space-y-20 opacity-40 hover:opacity-100 transition-opacity duration-700">
-                    <div class="flex flex-wrap justify-center items-center gap-8 md:gap-24">
+                    <div class="flex flex-wrap justify-center items-center gap-6 sm:gap-12 md:gap-24">
                         <a href="https://www.ikea.com" target="_blank" class="text-2xl sm:text-4xl md:text-7xl font-black uppercase tracking-tighter hover:text-blue-500 transition-colors">IKEA</a>
                         <a href="https://www.zara.com" target="_blank" class="text-2xl sm:text-4xl md:text-7xl font-black uppercase tracking-tighter hover:text-blue-500 transition-colors">ZARA</a>
                         <a href="https://www.hm.com" target="_blank" class="text-2xl sm:text-4xl md:text-7xl font-black uppercase tracking-tighter hover:text-blue-500 transition-colors">H&M</a>
                     </div>
-                    <div class="flex flex-wrap justify-center items-center gap-8 md:gap-24">
+                    <div class="flex flex-wrap justify-center items-center gap-6 sm:gap-12 md:gap-24">
                         <a href="https://www.walmart.com" target="_blank" class="text-2xl sm:text-4xl md:text-7xl font-black uppercase tracking-tighter hover:text-blue-500 transition-colors">WALMART</a>
                         <a href="https://www.target.com" target="_blank" class="text-2xl sm:text-4xl md:text-7xl font-black uppercase tracking-tighter hover:text-blue-500 transition-colors">TARGET</a>
                         <a href="https://www.next.co.uk" target="_blank" class="text-2xl sm:text-4xl md:text-7xl font-black uppercase tracking-tighter hover:text-blue-500 transition-colors">NEXT</a>
@@ -505,7 +505,7 @@
         <div class="max-w-7xl mx-auto">
             <div class="text-center mb-12 md:mb-20">
                 <h6 class="text-blue-500 font-black uppercase text-[10px] tracking-[0.5em] mb-2">Impact</h6>
-                <h2 class="text-3xl md:text-7xl font-black font-heading uppercase tracking-tighter">Sustainability Footprint</h2>
+                <h2 class="text-3xl md:text-7xl font-black font-heading uppercase tracking-tighter text-gray-950">Sustainability Footprint</h2>
             </div>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-12">
                 <div class="glass-card p-6 md:p-12 rounded-[2rem] md:rounded-[3rem] border border-emerald-500/20 bg-emerald-500/5">
@@ -538,7 +538,7 @@
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20">
                
                 <div class="space-y-6 md:space-y-10">
-                    <h2 class="text-2xl md:text-4xl font-black font-heading uppercase tracking-tighter flex items-center gap-4">
+                    <h2 class="text-2xl md:text-4xl font-black font-heading uppercase tracking-tighter flex items-center gap-4 text-gray-950">
                         <span class="w-8 md:w-12 h-1 bg-blue-600 shrink-0"></span> Academic Foundation
                     </h2>
                     <div class="space-y-4 md:space-y-6">
@@ -547,25 +547,25 @@
                                 <h4 class="text-base md:text-lg font-bold text-yellow-600">Entrepreneurship & Business Development (EBD), Management Development Program (MDP)</h4>
                                 <span class="text-[10px] font-black text-gray-400 sm:pt-1">2026</span>
                             </div>
-                            <p class="text-xs text-gray-600 uppercase font-black">IBA, University of Dhaka</p>
+                            <p class="text-xs text-gray-900 uppercase font-black">IBA, University of Dhaka</p>
                         </div>
                         <div class="glass-card p-6 md:p-8 rounded-2xl md:rounded-[2rem] border-l-4 border-l-blue-600">
                             <div class="flex flex-col sm:flex-row justify-between items-start gap-1 mb-2">
-                                <h4 class="text-base md:text-lg font-bold">MBA in Management Information Systems</h4>
+                                <h4 class="text-base md:text-lg font-bold text-gray-950">MBA in Management Information Systems</h4>
                                 <span class="text-[10px] font-black text-gray-400 sm:pt-1">2025</span>
                             </div>
                             <p class="text-xs text-blue-600 uppercase font-black">University of Scholars</p>
                         </div>
                         <div class="glass-card p-6 md:p-8 rounded-2xl md:rounded-[2rem] border-l-4 border-l-blue-600">
                             <div class="flex flex-col sm:flex-row justify-between items-start gap-1 mb-2">
-                                <h4 class="text-base md:text-lg font-bold">MBA in Marketing</h4>
+                                <h4 class="text-base md:text-lg font-bold text-gray-950">MBA in Marketing</h4>
                                 <span class="text-[10px] font-black text-gray-400 sm:pt-1">2023</span>
                             </div>
                             <p class="text-xs text-blue-600 uppercase font-black">International MBA Institute</p>
                         </div>
                         <div class="glass-card p-6 md:p-8 rounded-2xl md:rounded-[2rem] border-l-4 border-l-blue-600">
                             <div class="flex flex-col sm:flex-row justify-between items-start gap-1 mb-2">
-                                <h4 class="text-base md:text-lg font-bold">BA in Accounting & Financial Management</h4>
+                                <h4 class="text-base md:text-lg font-bold text-gray-950">BA in Accounting & Financial Management</h4>
                                 <span class="text-[10px] font-black text-gray-400 sm:pt-1">2013</span>
                             </div>
                             <p class="text-xs text-blue-600 uppercase font-black">University of Sunderland, UK</p>
@@ -574,53 +574,53 @@
                 </div>
 
                 <div class="space-y-6 md:space-y-10">
-                    <h2 class="text-2xl md:text-4xl font-black font-heading uppercase tracking-tighter flex items-center gap-4">
+                    <h2 class="text-2xl md:text-4xl font-black font-heading uppercase tracking-tighter flex items-center gap-4 text-gray-950">
                         <span class="w-8 md:w-12 h-1 bg-emerald-600 shrink-0"></span> Professional Accreditations
                     </h2>
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6">
                         <div class="glass-card p-6 md:p-8 rounded-2xl md:rounded-[2rem] bg-gradient-to-br from-emerald-600/5 to-transparent">
                             <h5 class="text-[10px] font-black uppercase text-emerald-600 tracking-widest mb-2 md:mb-4">Operations</h5>
-                            <h4 class="text-sm font-bold mb-1">Certified Six Sigma Master Black Belt (CSSMBB)</h4>
+                            <h4 class="text-sm font-bold mb-1 text-gray-950">Certified Six Sigma Master Black Belt (CSSMBB)</h4>
                             <p class="text-[9px] text-gray-400">International Six Sigma Institute | 2023</p>
                         </div>
                         <div class="glass-card p-6 md:p-8 rounded-2xl md:rounded-[2rem] bg-gradient-to-br from-emerald-600/5 to-transparent">
                             <h5 class="text-[10px] font-black uppercase text-emerald-600 tracking-widest mb-2 md:mb-4">Supply Chain</h5>
-                            <h4 class="text-sm font-bold mb-1">Post Graduate Diploma in Supply Chain Management</h4>
+                            <h4 class="text-sm font-bold mb-1 text-gray-950">Post Graduate Diploma in Supply Chain Management</h4>
                             <p class="text-[9px] text-gray-400">ISCEA, USA | 2017</p>
                         </div>
                         <div class="glass-card p-6 md:p-8 rounded-2xl md:rounded-[2rem] bg-gradient-to-br from-emerald-600/5 to-transparent">
                             <h5 class="text-[10px] font-black uppercase text-emerald-600 tracking-widest mb-2 md:mb-4">Merchandising</h5>
-                            <h4 class="text-sm font-bold mb-1">Certificate in Apparel Merchandising</h4>
+                            <h4 class="text-sm font-bold mb-1 text-gray-950">Certificate in Apparel Merchandising</h4>
                             <p class="text-[9px] text-gray-400">Textileus | 2024</p>
                         </div>
                         <div class="glass-card p-6 md:p-8 rounded-2xl md:rounded-[2rem] bg-gradient-to-br from-emerald-600/5 to-transparent">
                             <h5 class="text-[10px] font-black uppercase text-emerald-600 tracking-widest mb-2 md:mb-4">Compliance</h5>
-                            <h4 class="text-sm font-bold mb-1">ISO 9001:2015 Quality Management System</h4>
+                            <h4 class="text-sm font-bold mb-1 text-gray-950">ISO 9001:2015 Quality Management System</h4>
                             <p class="text-[9px] text-gray-400">Alison | 2020</p>
                         </div>
                          <div class="glass-card p-6 md:p-8 rounded-2xl md:rounded-[2rem] bg-gradient-to-br from-emerald-600/5 to-transparent">
                             <h5 class="text-[10px] font-black uppercase text-emerald-600 tracking-widest mb-2 md:mb-4">Business Administration</h5>
-                            <h4 class="text-sm font-bold mb-1">Post Graduate Diploma in Business Administration</h4>
+                            <h4 class="text-sm font-bold mb-1 text-gray-950">Post Graduate Diploma in Business Administration</h4>
                             <p class="text-[9px] text-gray-400">EBMA, UK | 2014</p>
                         </div>
                         <div class="glass-card p-6 md:p-8 rounded-2xl md:rounded-[2rem] bg-gradient-to-br from-emerald-600/5 to-transparent">
                             <h5 class="text-[10px] font-black uppercase text-emerald-600 tracking-widest mb-2 md:mb-4">Business Development</h5>
-                            <h4 class="text-sm font-bold mb-1">Post Graduate Diploma in Marketing & Brand Management</h4>
+                            <h4 class="text-sm font-bold mb-1 text-gray-950">Post Graduate Diploma in Marketing & Brand Management</h4>
                             <p class="text-[9px] text-gray-400">BIMS | 2025</p>
                         </div>
                         <div class="glass-card p-6 md:p-8 rounded-2xl md:rounded-[2rem] bg-gradient-to-br from-emerald-600/5 to-transparent">
                             <h5 class="text-[10px] font-black uppercase text-emerald-600 tracking-widest mb-2 md:mb-4">Quality Excellence</h5>
-                            <h4 class="text-sm font-bold mb-1">Diploma in Lean Manufacturing & Product Management</h4>
+                            <h4 class="text-sm font-bold mb-1 text-gray-950">Diploma in Lean Manufacturing & Product Management</h4>
                             <p class="text-[9px] text-gray-400">Alison | 2023</p>
                         </div>
                         <div class="glass-card p-6 md:p-8 rounded-2xl md:rounded-[2rem] bg-gradient-to-br from-emerald-600/5 to-transparent">
                             <h5 class="text-[10px] font-black uppercase text-emerald-600 tracking-widest mb-2 md:mb-4">Leadership</h5>
-                            <h4 class="text-sm font-bold mb-1">Certified High Performing Executives</h4>
+                            <h4 class="text-sm font-bold mb-1 text-gray-950">Certified High Performing Executives</h4>
                             <p class="text-[9px] text-gray-400">Industria Academia | 2024</p>
                         </div>
                         <div class="glass-card p-6 md:p-8 rounded-2xl md:rounded-[2rem] bg-gradient-to-br from-emerald-600/5 to-transparent">
                             <h5 class="text-[10px] font-black uppercase text-emerald-600 tracking-widest mb-2 md:mb-4">Communication</h5>
-                            <h4 class="text-sm font-bold mb-1">Communication & Interpersonal Skills at Work</h4>
+                            <h4 class="text-sm font-bold mb-1 text-gray-950">Communication & Interpersonal Skills at Work</h4>
                             <p class="text-[9px] text-gray-400">University of Leeds & Institute of Coding | 2020</p>
                         </div>
                     </div>
@@ -629,23 +629,23 @@
         </div>
     </section>
 
-    <footer class="py-16 md:py-24 bg-gray-900 relative overflow-hidden">
+    <footer class="py-16 md:py-24 bg-gray-950 relative overflow-hidden">
         <div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-[300px] sm:w-[1200px] h-[100px] sm:h-[400px] bg-blue-600/5 rounded-full blur-[120px] -z-10"></div>
        
         <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center">
-            <h2 class="text-4xl sm:text-6xl md:text-8xl font-black font-heading tracking-tighter text-gray-800 mb-6 md:mb-10 italic">
-                Let's <span class="text-blue-600 underline underline-offset-[8px] md:underline-offset-[16px] decoration-gray-800">Discourse.</span>
+            <h2 class="text-4xl sm:text-6xl md:text-8xl font-black font-heading tracking-tighter text-white mb-6 md:mb-10 italic">
+                Let's <span class="text-blue-600 underline underline-offset-[8px] md:underline-offset-[16px] decoration-white">Discourse.</span>
             </h2>
            
             <p class="text-gray-500 text-[10px] md:text-sm font-light uppercase tracking-[0.3em] md:tracking-[0.5em] mb-10 md:mb-16">
                 Open for Strategic Advisory & Board Opportunities
             </p>
             <div class="flex justify-center gap-8 md:gap-12 mb-16 md:mb-24">
-                <a href="mailto:saidur.reseni@gmail.com" class="text-3xl md:text-4xl text-gray-400 hover:text-gray-800 transition-all transform hover:scale-125"><i class="fas fa-envelope"></i></a>
-                <a href="https://linkedin.com/in/mohammad-saidur-rahman-chp" class="text-3xl md:text-4xl text-gray-400 hover:text-gray-800 transition-all transform hover:scale-125"><i class="fab fa-linkedin-in"></i></a>
-                <a href="tel:+8801917182199" class="text-3xl md:text-4xl text-gray-400 hover:text-gray-800 transition-all transform hover:scale-125"><i class="fas fa-phone"></i></a>
+                <a href="mailto:saidur.reseni@gmail.com" class="text-3xl md:text-4xl text-gray-600 hover:text-white transition-all transform hover:scale-125"><i class="fas fa-envelope"></i></a>
+                <a href="https://linkedin.com/in/mohammad-saidur-rahman-chp" class="text-3xl md:text-4xl text-gray-600 hover:text-white transition-all transform hover:scale-125"><i class="fab fa-linkedin-in"></i></a>
+                <a href="tel:+8801917182199" class="text-3xl md:text-4xl text-gray-600 hover:text-white transition-all transform hover:scale-125"><i class="fas fa-phone"></i></a>
             </div>
-            <div class="w-full h-px bg-gray-300/50 mb-12 md:mb-16"></div>
+            <div class="w-full h-px bg-white/10 mb-12 md:mb-16"></div>
             <div class="flex flex-col md:flex-row justify-between items-center gap-4 text-[8px] md:text-[9px] font-black uppercase tracking-[0.3em] md:tracking-[0.5em] text-gray-500">
                 <p class="text-center md:text-left">© 2026 M. SAIDUR RAHMAN. Strategic Rights Reserved.</p>
                 <div class="flex gap-6 md:gap-8">
@@ -657,7 +657,7 @@
     </footer>
 
     <script>
-        // Tab switching utility
+        // Tab system layout controller
         function showTab(event, tabId) {
             document.querySelectorAll('.tab-pane').forEach(p => p.classList.remove('active'));
             document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
@@ -666,37 +666,37 @@
             event.currentTarget.classList.add('active');
         }
 
-        // Lightweight slide-out responsive navigation script
-        const menuToggle = document.getElementById('menu-toggle');
-        const menuClose = document.getElementById('menu-close');
-        const mobileMenu = document.getElementById('mobile-menu');
-        const mobileLinks = document.querySelectorAll('.mobile-nav-link');
+        // Dedicated Mobile Menu Trigger Controls
+        const openBtn = document.getElementById('hamburger-open');
+        const closeBtn = document.getElementById('hamburger-close');
+        const menuOverlay = document.getElementById('mobile-menu-overlay');
+        const internalLinks = document.querySelectorAll('.mobile-nav-link');
 
-        function openMenu() {
-            mobileMenu.classList.remove('hidden');
+        function openMobileNav() {
+            menuOverlay.classList.remove('hidden');
             setTimeout(() => {
-                mobileMenu.classList.remove('opacity-0', 'scale-95', 'pointer-events-none');
-                mobileMenu.classList.add('opacity-100', 'scale-100');
+                menuOverlay.classList.remove('opacity-0', 'scale-95', 'pointer-events-none');
+                menuOverlay.classList.add('opacity-100', 'scale-100');
             }, 10);
         }
 
-        function closeMenu() {
-            mobileMenu.classList.remove('opacity-100', 'scale-100');
-            mobileMenu.classList.add('opacity-0', 'scale-95', 'pointer-events-none');
+        function closeMobileNav() {
+            menuOverlay.classList.remove('opacity-100', 'scale-100');
+            menuOverlay.classList.add('opacity-0', 'scale-95', 'pointer-events-none');
             setTimeout(() => {
-                mobileMenu.classList.add('hidden');
+                menuOverlay.classList.add('hidden');
             }, 300);
         }
 
-        menuToggle.addEventListener('click', openMenu);
-        menuClose.addEventListener('click', closeMenu);
-        mobileLinks.forEach(link => link.addEventListener('click', closeMenu));
+        openBtn.addEventListener('click', openMobileNav);
+        closeBtn.addEventListener('click', closeMobileNav);
+        internalLinks.forEach(link => link.addEventListener('click', closeMobileNav));
 
-        // GSAP Animations with Responsive Checks
+        // GSAP Initialization
         gsap.registerPlugin(ScrollTrigger);
         gsap.from("#summary h1", { y: 40, opacity: 0, duration: 1.2, ease: "expo.out" });
         
-        // Only run scroll animations on wider desktop screens to avoid jittery rendering layouts on mobile
+        // Render scroll animations strictly on devices above standard tablet size break-points
         if (window.innerWidth > 768) {
             gsap.utils.toArray(".glass-card").forEach(card => {
                 gsap.from(card, {
