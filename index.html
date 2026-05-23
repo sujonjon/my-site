@@ -138,41 +138,42 @@
         }
 
         nav .nav-glass-container {
-            background: rgba(245,245,247,0.85);
+            background: rgba(255, 255, 255, 0.96);
             backdrop-filter: var(--blur);
             -webkit-backdrop-filter: var(--blur);
-            border: 1px solid rgba(0,0,0,0.08);
+            border: 1px solid rgba(0,0,0,0.12);
             border-radius: 9999px;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.06);
-            padding: 0.6rem 1rem;
+            box-shadow: 0 12px 45px rgba(0,0,0,0.08);
+            padding: 0.75rem 1.5rem;
         }
 
         @media (min-width: 768px) {
             nav .nav-glass-container {
-                padding: 0.8rem 2.2rem;
+                padding: 0.9rem 2.5rem;
             }
         }
 
         .hire-btn {
             background: var(--primary);
             color: white !important;
-            padding: 0.5rem 1rem;
+            padding: 0.6rem 1.4rem;
             border-radius: 9999px;
-            font-weight: 600;
-            letter-spacing: 0.03em;
+            font-weight: 700;
+            letter-spacing: 0.04em;
             transition: all 0.3s ease;
             white-space: nowrap;
         }
 
         @media (min-width: 768px) {
             .hire-btn {
-                padding: 0.9rem 2.2rem;
+                padding: 0.9rem 2.4rem;
             }
         }
 
         .hire-btn:hover {
             background: #0066cc;
             transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(0, 113, 227, 0.3);
         }
 
         .tab-pane {
@@ -217,33 +218,56 @@
         .text-emerald-500, .text-blue-500, .text-purple-500 {
             color: inherit !important;
         }
+        
+        /* Desktop Menu Item Bottom Line Animation */
+        .desktop-nav-link {
+            position: relative;
+            padding: 0.25rem 0;
+        }
+        .desktop-nav-link::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            transform: scaleX(0);
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background-color: var(--primary);
+            transform-origin: bottom right;
+            transition: transform 0.25s ease-out;
+        }
+        .desktop-nav-link:hover::after {
+            transform: scaleX(1);
+            transform-origin: bottom left;
+        }
     </style>
 </head>
 <body>
 
     <nav class="fixed top-0 w-full z-[1000] p-4 md:p-6">
         <div class="max-w-7xl mx-auto nav-glass-container flex justify-between items-center">
-            <div class="flex items-center gap-2 md:gap-4 max-w-[55%] sm:max-w-none">
-                <div class="w-10 h-10 md:w-12 md:h-12 bg-blue-600 rounded-xl flex items-center justify-center font-black text-white text-base md:text-xl shrink-0">MSR</div>
+            
+            <div class="flex items-center gap-3 md:gap-4 max-w-[60%] sm:max-w-none">
+                <div class="w-11 h-11 md:w-14 md:h-14 bg-blue-600 rounded-xl flex items-center justify-center font-black text-white text-lg md:text-2xl shrink-0 shadow-sm">MSR</div>
                 <div class="truncate">
-                    <h2 class="text-xs md:text-sm font-semibold truncate text-gray-900">Mohammad Saidur Rahman</h2>
-                    <p class="text-[8px] md:text-[9px] font-medium text-gray-500 uppercase tracking-wider truncate">C-Suite Business Executive</p>
+                    <h2 class="text-sm md:text-base font-bold truncate text-gray-950 tracking-tight">Mohammad Saidur Rahman</h2>
+                    <p class="text-[9px] md:text-[11px] font-bold text-blue-600 uppercase tracking-widest truncate mt-0.5">C-Suite Business Executive</p>
                 </div>
             </div>
           
-            <ul class="hidden lg:flex items-center gap-8 xl:gap-10 text-sm font-medium text-gray-700">
-                <li><a href="#summary" class="hover:text-black transition-colors duration-200">Summary</a></li>
-                <li><a href="#tenure" class="hover:text-black transition-colors duration-200">Experience</a></li>
-                <li><a href="#manufacturing" class="hover:text-black transition-colors duration-200">Portfolio</a></li>
-                <li><a href="#sustainability" class="hover:text-black transition-colors duration-200">Sustainability</a></li>
-                <li><a href="#academics" class="hover:text-black transition-colors duration-200">Credentials</a></li>
+            <ul class="hidden lg:flex items-center gap-8 xl:gap-10 text-[15px] font-semibold text-gray-800">
+                <li><a href="#summary" class="desktop-nav-link hover:text-black transition-colors duration-200">Summary</a></li>
+                <li><a href="#tenure" class="desktop-nav-link hover:text-black transition-colors duration-200">Experience</a></li>
+                <li><a href="#manufacturing" class="desktop-nav-link hover:text-black transition-colors duration-200">Portfolio</a></li>
+                <li><a href="#sustainability" class="desktop-nav-link hover:text-black transition-colors duration-200">Sustainability</a></li>
+                <li><a href="#academics" class="desktop-nav-link hover:text-black transition-colors duration-200">Credentials</a></li>
             </ul>
 
-            <div class="flex items-center gap-2 sm:gap-4">
-                <a href="mailto:saidur.reseni@gmail.com" class="hire-btn text-[10px] md:text-xs font-semibold uppercase tracking-wider">
+            <div class="flex items-center gap-3 sm:gap-5">
+                <a href="mailto:saidur.reseni@gmail.com" class="hire-btn text-[11px] md:text-sm font-bold uppercase tracking-wider">
                     CONNECT
                 </a>
-                <button id="hamburger-open" class="lg:hidden text-gray-800 hover:text-blue-600 focus:outline-none p-2 text-xl" aria-label="Open Navigation Menu">
+                <button id="hamburger-open" class="lg:hidden text-gray-900 hover:text-blue-600 focus:outline-none p-2 text-2xl" aria-label="Open Navigation Menu">
                     <i class="fas fa-bars"></i>
                 </button>
             </div>
@@ -251,7 +275,7 @@
     </nav>
 
     <div id="mobile-menu-overlay" class="fixed inset-0 bg-white/98 backdrop-blur-xl z-[2000] hidden flex-col justify-center items-center opacity-0 scale-95 pointer-events-none transition-all duration-300">
-        <button id="hamburger-close" class="absolute top-6 right-6 text-2xl text-gray-700 p-3 hover:text-red-500 focus:outline-none" aria-label="Close Navigation Menu">
+        <button id="hamburger-close" class="absolute top-6 right-6 text-3xl text-gray-800 p-3 hover:text-red-500 focus:outline-none" aria-label="Close Navigation Menu">
             <i class="fas fa-times"></i>
         </button>
         <ul class="flex flex-col items-center gap-8 text-2xl font-bold font-heading text-gray-900">
